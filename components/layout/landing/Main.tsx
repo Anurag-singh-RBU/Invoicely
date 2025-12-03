@@ -4,7 +4,7 @@ import React from 'react'
 
 const Main = () => {
   return (
-     <div className="grid grid-flow-row sm:h-auto sm:grid-cols-3 border-b border-dashed gap-4 sm:gap-0 py-4">
+     <div className="grid grid-flow-row sm:h-auto sm:grid-cols-3 border-b border-dashed gap-4 sm:gap-0 py-4 sm:py-0">
         <Card>
             <CardSkeleton>
                 <SkeletonOne/>
