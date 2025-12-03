@@ -53,7 +53,7 @@ const Hero = () => {
           </Link>
           <div className="relative mt-3">
               <Link target="_blank" href={""}>
-                <Button variant="secondary">
+                <Button variant="secondary" className="shadow-sm">
                   <span>Open Source</span>
                   <GithubIcon />
                 </Button>
