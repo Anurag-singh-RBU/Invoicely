@@ -15,7 +15,7 @@ export const CardContent = ({ className, children }: { className?: string; child
 
 export const CardTitle = ({ className, children }: { className?: string; children: React.ReactNode }) => {
   return (
-    <h3 className={cn("text-md font-bold md:text-3xl jetbrains-mono text-center sm:mt-0 pt-5" , className)}>{children}</h3>
+    <h3 className={cn("text-md font-bold md:text-xl jetbrains-mono text-center sm:mt-0 pt-5" , className)}>{children}</h3>
   )
 }
 

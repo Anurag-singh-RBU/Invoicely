@@ -11,7 +11,7 @@ const Main = () => {
             </CardSkeleton>
             <CardContent>
                 <CardTitle>
-                    Curated Tools just Built <br></br> for Your Process
+                    Curated Tools just Built <br className='sm:hidden block'></br> for Your Process
                 </CardTitle>
             </CardContent>
         </Card>
@@ -22,7 +22,7 @@ const Main = () => {
                 </CardSkeleton>
                 <CardContent>
                     <CardTitle>
-                        Curated Tools just Built <br></br>for Your Process
+                        Curated Tools just Built <br className='sm:hidden block'></br> for Your Process
                     </CardTitle>
                 </CardContent>
             </Card>
@@ -34,7 +34,7 @@ const Main = () => {
                 </CardSkeleton>
                 <CardContent>
                     <CardTitle>
-                        Curated Tools just Built <br></br>for Your Process
+                        Curated Tools just Built <br className='sm:hidden block'></br> for Your Process
                     </CardTitle>
                 </CardContent>
             </Card>
