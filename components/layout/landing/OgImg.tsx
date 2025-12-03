@@ -3,7 +3,7 @@ import React from 'react'
 
 const OgImg = () => {
   return (
-    <div className='flex flex-col border-b border-dashed sm:p-4 p-0 dark:py-0 dark:px-4 w-full'>
+    <div className='flex flex-col border-b border-dashed sm:p-4 p-4 sm:rounded-none rounded-lg dark:py-0 dark:px-4 w-full'>
         <div className="relative">
 
         <Image
