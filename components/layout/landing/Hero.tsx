@@ -41,14 +41,17 @@ const Hero = () => {
             Not <span className="dark:text-white text-secondary-foreground">Ugly</span> Ones
           </h2>
         </div>
-        <div className="mt-4 flex flex-row sm:gap-4 gap-2 sm:px-6 px-4">
+        <div className="mt-4 flex flex-row sm:gap-6 gap-4 sm:px-6 px-4">
           <Link href={""}>
-            <Button className="dark:bg-[linear-gradient(135deg,#dff7ff,#a8d8ff)]">
+            {/* <Button className="dark:bg-[linear-gradient(135deg,#dff7ff,#a8d8ff)]">
               <span>Get Started</span>
-              <CircleOpenArrowRight className="-rotate-45 dark:text-black" />
-            </Button>
+            </Button> */}
+            <button type="button" className="btn">
+              <div className="top font-bold tracking-tight jetbrains-mono" style={{wordSpacing: "0px"}}>Get Started</div>
+              <div className="bottom"></div>
+            </button>
           </Link>
-          <div className="relative">
+          <div className="relative mt-3">
               <Link target="_blank" href={""}>
                 <Button variant="secondary">
                   <span>Open Source</span>
