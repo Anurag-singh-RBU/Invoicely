@@ -3,7 +3,6 @@ import Footer from "@/components/layout/landing/Footer";
 import Header from "@/components/layout/landing/Header";
 import Hero from "@/components/layout/landing/Hero";
 import OgImg from "@/components/layout/landing/OgImg";
-import Main from "@/components/layout/landing/Main";
 
 export default function Home() {
 
@@ -14,7 +13,6 @@ export default function Home() {
       <Hero/>
       <Features/>
       <OgImg/>
-      <Main/>
       <Footer/>
     </div>
 
