@@ -1,4 +1,5 @@
 import Features from "@/components/layout/landing/Features";
+import Footer from "@/components/layout/landing/Footer";
 import Header from "@/components/layout/landing/Header";
 import Hero from "@/components/layout/landing/Hero";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Header/>
       <Hero/>
       <Features/>
+      <Footer/>
     </div>
 
   );
