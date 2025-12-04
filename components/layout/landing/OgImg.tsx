@@ -3,7 +3,7 @@ import React from 'react'
 
 const OgImg = () => {
   return (
-    <div className='flex flex-col border-b border-dashed sm:p-4 p-4 sm:rounded-none rounded-lg dark:py-0 dark:px-4 w-full'>
+    <div className='flex flex-col border-b border-dashed sm:p-0 p-4 sm:rounded-none rounded-lg dark:py-0 dark:px-4 w-full'>
         <div className="relative">
 
         <Image
@@ -11,7 +11,7 @@ const OgImg = () => {
             alt="Hero Image"
             height={1080}
             width={1920}
-            className="inset-0 sm:rounded-lg sm:mask-r-from-95% sm:mask-l-from-97% sm:mask-b-from-90% sm:mask-t-from-95% mask-none rounded-none dark:hidden"/>
+            className="inset-0 mask-none rounded-none dark:hidden"/>
 
         <Image
             src="/hero-dark.png"
