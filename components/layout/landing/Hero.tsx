@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleOpenArrowRight, GithubIcon, Star } from "@/assets/icons";
+import { GithubIcon } from "@/assets/icons";
 import { ScribbledArrowToRight } from "@/assets/svgs";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -17,13 +17,11 @@ const Hero = () => {
           src="/og-bg.png"
           alt="Hero"
           width={1920}
-          height={1080}
-        />
+          height={1080}/>
       </div>
       <div className="z-10 flex flex-col gap-4">
         <div className="flex flex-row items-center gap-2 sm:px-6 px-4">
             <div className="bg-muted/20 relative flex h-7 w-16 flex-row items-center gap-2 rounded-md border px-2 dark:border-gray-500">
-            {/* <Star className="size-3 text-yellow-500"/> */}
             <span className="urbanist absolute text-center tracking-wider right-3 text-sm font-semibold">
                 v1.0.0
             </span>
@@ -42,9 +40,9 @@ const Hero = () => {
           </h2>
         </div>
         <div className="mt-4 flex flex-row sm:gap-6 gap-4 sm:px-6 px-4">
-          <Link href={""}>
-            <button type="button" className="btn">
-              <div className="top font-bold tracking-tight jetbrains-mono" style={{wordSpacing: "0px"}}>Get Started</div>
+          <Link href="/create/invoice">
+            <button type="button" className="btn cursor-pointer">
+              <div className="top font-bold tracking-tight jetbrains-mono">Get Started</div>
               <div className="bottom"></div>
             </button>
           </Link>
