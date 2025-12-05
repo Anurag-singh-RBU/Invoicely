@@ -3,7 +3,7 @@ import Footer from "@/components/layout/landing/Footer";
 import Header from "@/components/layout/landing/Header";
 import Hero from "@/components/layout/landing/Hero";
 import OgImg from "@/components/layout/landing/OgImg";
-import OurSponser from "@/components/layout/landing/Sponsors";
+import Promise from "@/components/layout/landing/Promises";
 
 export default function Home() {
 
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero/>
       <Features/>
       <OgImg/>
-      <OurSponser/>
+      <Promise/>
       <Footer/>
     </div>
 

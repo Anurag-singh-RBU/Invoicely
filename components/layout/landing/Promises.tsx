@@ -40,7 +40,7 @@ const sponsers: Sponser[] = [
     imageClass: "h-30 w-40",
     image: "/spt.png",
     description:
-      "We stay connected with you throughout the entire journey. Whether you have questions, issues or feedback — we’re always available. Our team ensures quick responses and practical solutions every time..",
+      "We stay connected with you throughout the entire journey. Whether you have questions, issues or feedback — we’re always available. Our team ensures quick responses and practical solutions every time.",
   },
   {
     name: "Creativity",
