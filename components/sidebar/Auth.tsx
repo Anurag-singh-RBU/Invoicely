@@ -41,7 +41,7 @@ const Auth = () => {
             <Image src={session?.user?.image || "/auth-default.png"} alt="logo" width={38} height={38} className='rounded-md'/>
             <div className='flex flex-col'>
               <span className='instrument-sans truncate font-semibold capitalize'>{(session.user.name).split("_").slice(-1)[0]}</span>
-              <span className='text-xs geist-sans text-gray-600 tracking-wider max-w-[120px] truncate block'>{session.user.email}</span>
+              <span className='text-xs geist-sans text-gray-600 tracking-wider max-w-[150px] truncate block'>{session.user.email}</span>
             </div>
           </div>
           <div className='w-auto h-auto mt-3'>
