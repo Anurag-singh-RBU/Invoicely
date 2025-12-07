@@ -15,6 +15,7 @@ import { NavigationItem } from "@/components/sidebar/navigation-item";
 import { SIDEBAR_ITEMS } from "@/components/constants/sidebar";
 import Link from "next/link";
 import Image from "next/image";
+import Auth from "./Auth";
 
 export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -39,6 +40,7 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
         ))}
       </SidebarContent>
       <SidebarFooter>
+        <Auth></Auth>
       </SidebarFooter>
     </Sidebar>
   );

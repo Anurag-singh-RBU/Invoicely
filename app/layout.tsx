@@ -12,6 +12,7 @@ import "./globals.css";
 import "./fonts.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,7 +64,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={cn(
           geistSans.variable,
@@ -76,6 +77,7 @@ export default function RootLayout({
           "antialiased",
         )}>
         <ThemeProvider defaultTheme="system" attribute="class" scriptProps={{"data-cfasync": "false"}}>
+          <Toaster/>
           {children}
         </ThemeProvider>
       </body>
