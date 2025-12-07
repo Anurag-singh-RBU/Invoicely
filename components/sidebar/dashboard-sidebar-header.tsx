@@ -7,7 +7,9 @@ import { Separator } from "@/components/ui/separator";
 import { SIDEBAR_ITEMS } from "@/components/constants/sidebar";
 import { usePathname } from "next/navigation";
 import { ISidebarHeader } from "@/types/sidebar";
+import { X } from "lucide-react";
 import React from "react";
+import { useSidebar } from "@/components/ui/sidebar";
 
 const DashboardSidebarHeader = ({ children }: ISidebarHeader) => {
   const pathname = usePathname();
