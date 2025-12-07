@@ -36,7 +36,7 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
                 <button
                   className="sm:hidden p-2 rounded-md hover:bg-accent"
                   onClick={() => toggleSidebar()}>
-                  <X className="size-5" />
+                  <X className="size-5"/>
                 </button>
               </div>
             </SidebarMenuButton>
