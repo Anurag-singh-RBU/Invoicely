@@ -40,7 +40,7 @@ const Auth = () => {
           <div className="flex gap-3 items-center">
             <Image src={session?.user?.image || "/auth-default.png"} alt="logo" width={38} height={38} className='rounded-md'/>
             <div className='flex flex-col'>
-              <span className='instrument-sans truncate font-semibold capitalize'>{(session.user.name).split("_").slice(-1)[0]}</span>
+              <span className='instrument-sans truncate font-semibold capitalize' style={{wordSpacing: "3px"}}>{(session.user.name).split("_").slice(-1)[0]}</span>
               <span className='text-xs geist-sans text-gray-600 tracking-wider max-w-[150px] truncate block'>{session.user.email}</span>
             </div>
           </div>
