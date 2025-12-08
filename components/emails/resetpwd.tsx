@@ -91,7 +91,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
             </Section>
 
             <Section className="px-14 pb-12 pt-8 border-t border-slate-100">
-              <Text className="text-[13px] text-slate-500 text-center font-normal leading-[18px] m-0 mb-3">
+              <Text className="text-[13px] text-slate-500 text-center font-normalfont-mono leading-[18px] m-0 mb-3">
                 Best regards,<br />
                 The {companyName} Security Team
               </Text>
