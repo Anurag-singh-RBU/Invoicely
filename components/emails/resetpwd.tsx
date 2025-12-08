@@ -59,6 +59,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
                   className="bg-blue-700 hover:bg-blue-500 text-white px-10 shadow-md py-[18px] rounded-xl text-[16px] font-medium no-underline box-border inline-block tracking-wide transition-colors font-mono">
                   Reset My Password
                 </Button>
+                
               </Section>
 
               <Section className="bg-slate-50 rounded-xl p-6 mb-8">
