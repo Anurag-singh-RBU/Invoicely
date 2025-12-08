@@ -102,7 +102,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
               <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-3">
                 Nagpur , Maharashtra , India
               </Text>
-              <Text className="text-[12px] flex whitespace-nowrap text-slate-400 text-center font-normal leading-4 m-0">
+              <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0">
                 <a href="#" className="text-slate-400 no-underline hover:text-slate-600">Privacy Policy</a> • 
                 <a href="#" className="text-slate-400 no-underline hover:text-slate-600"> Unsubscribe</a> • 
                 © 2025 {companyName}
