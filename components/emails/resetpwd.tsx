@@ -30,10 +30,10 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
         <Head>
         </Head>
         <Body className="bg-slate-50 geist-sans py-10">
-          <Container className="bg-white max-w-[580px] mx-auto rounded-[12px] shadow-lg border border-slate-200">
+          <Container className="bg-white sm:max-w-[580px] w-full mx-auto rounded-[12px] shadow-lg border border-slate-200">
 
             <Section className="px-14 pt-14 pb-10 text-center">
-              <Text className="text-[28px] font-bold tracking-wider font-mono text-slate-900 m-0 mb-2">
+              <Text className="text-[28px] font-bold tracking-wider whitespace-nowrap font-mono text-slate-900 m-0 mb-2">
                 Password Reset Request
               </Text>
               <Text className="text-[16px] text-slate-600 font-normal m-0">
