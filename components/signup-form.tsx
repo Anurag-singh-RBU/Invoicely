@@ -33,6 +33,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react"
 import { Loader2 } from "lucide-react"
 import { authClient } from "@/lib/auth-client"
+import BackBtn from "./ui/backbtn"
 
 const formSchema = z.object({
     username: z.string().min(3 , "Username must be at least 3 characters long"),
@@ -106,6 +107,9 @@ export function SignupForm({
 
   return (
     <div className={cn("flex flex-col gap-6 jetbrains-mono", className)} {...props}>
+      <div className="w-full justify-start items-start">
+        <BackBtn></BackBtn>
+      </div>
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-2xl instrument-serif tracking-wider" style={{wordSpacing: "4px"}}>Create Account</CardTitle>
@@ -120,7 +124,7 @@ export function SignupForm({
               <Field>
                 <Button variant="outline" type="button" 
                   style={{wordSpacing: "2px", letterSpacing: "0.5px"}} 
-                  className="geist-sans text-black" 
+                  className="geist-sans text-black dark:text-white" 
                   onClick={signInWithGoogle}
                   disabled={isLoading2}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={isLoading2 ? "hidden" : ""}>
@@ -185,8 +189,8 @@ export function SignupForm({
                 <Button type="submit" disabled = {isLoading} className="mt-2">
                   {isLoading ? <Loader2 className="animate-spin size-4"/> : "Create Account"}
                 </Button>
-                <FieldDescription className="text-center geist-sans text-sm text-gray-500" style={{wordSpacing: "2px", letterSpacing: "0.5px"}}>
-                  Already have an account ? <a href="/login" className="text-purple-700 tracking-normal jetbrains-mono" 
+                <FieldDescription className="text-center geist-sans text-sm text-gray-500 dark:text-gray-400" style={{wordSpacing: "2px", letterSpacing: "0.5px"}}>
+                  Already have an account ? <a href="/login" className="text-purple-700 dark:text-purple-500 tracking-normal jetbrains-mono" 
                   style={{textDecoration: "none" , wordSpacing: "-2px"}}>Login</a>
                 </FieldDescription>
               </Field>
