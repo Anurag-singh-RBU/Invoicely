@@ -33,10 +33,10 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
           <Container className="bg-white sm:max-w-[580px] w-full mx-auto rounded-[12px] shadow-lg border border-slate-200">
 
             <Section className="px-14 pt-14 pb-10 text-center">
-              <Text className="text-[28px] font-bold tracking-wider whitespace-nowrap font-mono text-slate-900 m-0 mb-2">
+              <Text className="sm:text-[28px] text-[35px] font-bold tracking-wider whitespace-nowrap font-mono text-slate-900 m-0 mb-2">
                 Password Reset Request
               </Text>
-              <Text className="text-[16px] text-slate-600 font-normal m-0">
+              <Text className="sm:text-[16px] text-[25px] text-slate-600 font-normal m-0">
                 Secure access to your {companyName} account
               </Text>
             </Section>
@@ -96,13 +96,13 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
                 The {companyName} Security Team
               </Text>
               <Hr className="border-slate-200 my-5" />
-              <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-1.5">
+              <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-1.5 whitespace-nowrap">
                 {companyName} | Anurag Singh and Anshuman Tiwari
               </Text>
               <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-3">
                 Nagpur , Maharashtra , India
               </Text>
-              <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0">
+              <Text className="text-[12px] flex whitespace-nowrap text-slate-400 text-center font-normal leading-4 m-0">
                 <a href="#" className="text-slate-400 no-underline hover:text-slate-600">Privacy Policy</a> • 
                 <a href="#" className="text-slate-400 no-underline hover:text-slate-600"> Unsubscribe</a> • 
                 © 2025 {companyName}
