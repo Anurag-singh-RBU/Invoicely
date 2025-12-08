@@ -33,7 +33,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
           <Container className="bg-white max-w-[580px] mx-auto rounded-[12px] shadow-lg border border-slate-200">
 
             <Section className="px-14 pt-14 pb-10 text-center">
-              <Text className="text-[28px] font-bold tracking-wider instrument-serif text-slate-900 m-0 mb-2">
+              <Text className="text-[28px] font-bold tracking-wider font-mono text-slate-900 m-0 mb-2">
                 Password Reset Request
               </Text>
               <Text className="text-[16px] text-slate-600 font-normal m-0">
@@ -59,7 +59,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
                   className="bg-blue-700 hover:bg-blue-500 text-white px-10 shadow-md py-[18px] rounded-xl text-[16px] font-medium no-underline box-border inline-block tracking-wide transition-colors font-mono">
                   Reset My Password
                 </Button>
-                
+
               </Section>
 
               <Section className="bg-slate-50 rounded-xl p-6 mb-8">
@@ -97,10 +97,10 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
               </Text>
               <Hr className="border-slate-200 my-5" />
               <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-1.5">
-                {companyName}, Inc. | 1234 Technology Drive, Suite 500
+                {companyName} | Anurag Singh and Anshuman Tiwari
               </Text>
               <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0 mb-3">
-                San Francisco, CA 94105, United States
+                Nagpur , Maharashtra , India
               </Text>
               <Text className="text-[12px] text-slate-400 text-center font-normal leading-4 m-0">
                 <a href="#" className="text-slate-400 no-underline hover:text-slate-600">Privacy Policy</a> • 
