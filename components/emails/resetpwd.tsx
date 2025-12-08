@@ -56,7 +56,7 @@ const ForgotPasswordEmail = (props: ForgotPasswordEmailProps) => {
               <Section className="text-center mb-10">
                 <Button
                   href={resetUrl}
-                  className="bg-slate-900 hover:bg-slate-800 text-white px-10 shadow-md py-[18px] rounded-xl text-[16px] font-medium no-underline box-border inline-block tracking-wide transition-colors font-mono">
+                  className="bg-blue-700 hover:bg-blue-500 text-white px-10 shadow-md py-[18px] rounded-xl text-[16px] font-medium no-underline box-border inline-block tracking-wide transition-colors font-mono">
                   Reset My Password
                 </Button>
               </Section>
