@@ -86,7 +86,7 @@ export function ForgotPwdForm({
         <CardHeader className="text-center">
           <CardTitle className="text-2xl instrument-serif tracking-wider" style={{wordSpacing: "4px"}}>Forgot Password</CardTitle>
           <CardDescription className="jetbrains-mono tracking-tight dark:text-white mb-3">
-            Enter your email to reset your password
+            Enter your email to reset password
           </CardDescription>
         </CardHeader>
         <CardContent>
