@@ -24,6 +24,7 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@react-email/components": "^1.0.1",
     "@sentry/nextjs": "^10.29.0",
     "@tanstack/react-table": "^8.21.3",
     "better-auth": "^1.4.5",
@@ -48,6 +49,7 @@
     "react-icons": "^5.5.0",
     "react-pdf": "^10.2.0",
     "react-resizable-panels": "^3.0.6",
+    "resend": "^6.5.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.1.13"
