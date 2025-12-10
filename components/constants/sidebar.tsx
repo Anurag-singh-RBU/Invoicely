@@ -5,20 +5,20 @@ export const SIDEBAR_ITEMS: ISidebar = {
   Navigation: [
     {
       name: "Invoices",
-      url: "/dashboard/invoices",
-      icon: <VersionsIcon />,
+      url: "/user/invoices",
+      icon: <VersionsIcon/>,
     },
     {
       name: "Manage Assets",
       url: "/dashboard/assets",
-      icon: <FolderFeatherIcon />,
+      icon: <FolderFeatherIcon/>,
     },
   ],
   Create: [
     {
       name: "Create Invoice",
       url: "/create/invoice",
-      icon: <ReceiptIcon />,
+      icon: <ReceiptIcon/>,
     },
   ],
 };

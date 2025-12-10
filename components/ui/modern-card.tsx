@@ -6,7 +6,7 @@ const ModernCardContainer = ({ className, children }: { className?: string; chil
 };
 
 const ModernCardDescription = ({ children }: { children: string }) => {
-  return <p className="jetbrains-mono text-muted-foreground text-xs tracking-tight">{children}</p>;
+  return <p className="jetbrains-mono text-muted-foreground text-xs tracking-tight text-justify">{children}</p>;
 };
 
 const ModernCardTitle = ({ label, children }: { label?: string; children: string }) => {
