@@ -16,6 +16,7 @@ export type Invoices = {
     storage: string
     "serial no": string
     "created at": Date | null
+    total?: number
     items?: number
     actions: JSX.Element
     status: InvoiceStatusType
@@ -46,6 +47,13 @@ export const columns: ColumnDef<Invoices>[] = [
             <div className="text-xs">{`${row.original.invoiceFields.invoiceDetails.prefix}${row.original.invoiceFields.invoiceDetails.serialNumber}`}</div>
         ),
         enableSorting: false,
+    },
+    {
+        accessorKey: "total",
+        header: ({ column }) => <HeaderColumnButton column={column}>Total</HeaderColumnButton>,
+        cell: ({ row }) => (
+            <div className="text-xs">{`${getSymbolFromCurrency(row.original.invoiceFields.invoiceDetails.currency)}${getTotalValue(row.original.invoiceFields)}`}</div>
+        ),
     },
     {
         accessorKey: "items",
@@ -124,3 +132,29 @@ const getStatusBadgeVariant = (status: InvoiceStatusType): BadgeVariants => {
       return "gray";
   }
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getSymbolFromCurrency(currency: any): string {
+    const currencySymbols: Record<string, string> = {
+        'USD': '$',
+        'EUR': '€',
+        'GBP': '£',
+        'JPY': '¥',
+        'INR': '₹',
+        'AUD': 'A$',
+        'CAD': 'C$',
+    }
+    return currencySymbols[currency?.toUpperCase()] || '$'
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getTotalValue(invoiceFields: any): number {
+    if (!invoiceFields?.items || !Array.isArray(invoiceFields.items)) {
+        return 0;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return invoiceFields.items.reduce((sum: number, item: any) => {
+        const itemTotal = (item.quantity || 0) * (item.price || 0);
+        return sum + itemTotal;
+    }, 0);
+}
+
