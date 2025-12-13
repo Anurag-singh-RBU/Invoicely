@@ -163,14 +163,12 @@ export default function SignatureInputModal({
                   setType("signature");
                   setIsModalOpen(true);
                 }}
-                className="hover:bg-accent/50 flex px-6 py-5 h-full flex-col items-center justify-center border-b border-dashed text-center"
-              >
+                className="hover:bg-accent/50 flex px-6 py-5 h-full flex-col items-center justify-center border-b border-dashed text-center">
                 {!disableIcon && (
                   <div
                     className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
-                    aria-hidden="true"
-                  >
-                    <SignatureIcon className="size-4 rotate-12" />
+                    aria-hidden="true">
+                    <SignatureIcon className="size-4 rotate-12"/>
                   </div>
                 )}
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
@@ -241,7 +239,7 @@ export default function SignatureInputModal({
         <DialogContent className="w-fit">
           <DialogHeaderContainer>
             <DialogIcon>
-              <SignatureIcon className="size-4 rotate-12" />
+              <SignatureIcon className="size-4 rotate-12"/>
             </DialogIcon>
             <DialogHeader>
               <DialogTitle>Company Signature</DialogTitle>
@@ -257,8 +255,7 @@ export default function SignatureInputModal({
                   animate={{ filter: "blur(0px)", top: 6 }}
                   exit={{ filter: "blur(1px)", top: -24 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute right-1.5 z-10 flex items-center justify-center"
-                >
+                  className="absolute right-1.5 z-10 flex items-center justify-center">
                   <Button variant="destructive" onClick={handleClear}>
                     Clear
                   </Button>
@@ -271,7 +268,7 @@ export default function SignatureInputModal({
                 penColor={darkMode ? "white" : "black"}
                 backgroundColor={darkMode ? "#181818" : "#ffffff"}
                 canvasProps={{ 
-                  className: "signature-canvas w-full h-full max-w-[330px] max-h-[330px] min-w-[200px] min-h-[200px] aspect-square" 
+                  className: "signature-canvas w-full h-full max-w-[350px] max-h-[330px] min-w-[280px] min-h-[200px] aspect-square" 
                 }}/>
             </div>
           </DialogContentContainer>
