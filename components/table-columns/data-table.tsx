@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
       <div className="flex flex-col gap-4 text-xs">
         <div className="max-w-[calc(100svw-2rem)] overflow-hidden rounded-md border md:max-w-full">
           <Table>
-            <TableHeader>
+            <TableHeader className="hidden sm:table-header-group w-full">
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow className="bg-sidebar hover:bg-sidebar!" key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
