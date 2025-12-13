@@ -10,7 +10,7 @@ export const SIDEBAR_ITEMS: ISidebar = {
     },
     {
       name: "Manage Assets",
-      url: "/dashboard/assets",
+      url: "/assets",
       icon: <FolderFeatherIcon/>,
     },
   ],
