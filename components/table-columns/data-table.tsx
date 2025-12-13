@@ -23,6 +23,7 @@ import { Skeleton } from "../ui/skeleton"
 import { cn } from "@/lib/utils"
 import { ArrowDownZaIcon, ArrowUpDownIcon, ArrowUpZaIcon } from "lucide-react"
 import { format } from "date-fns"
+import { authClient } from "@/lib/auth-client"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -43,6 +44,44 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
+
+  const { data : session } = authClient.useSession();
+
+  if(!session){
+
+    return (
+      <div className="flex flex-col gap-4 text-xs">
+        <div className="max-w-[calc(100svw-2rem)] overflow-hidden rounded-md border md:max-w-full">
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow className="bg-sidebar hover:bg-sidebar!" key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      </TableHead>
+                    );
+                  }
+                )}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              <TableRow className="hover:bg-background">
+                <TableCell colSpan={columns.length} className="text-muted-foreground/70 h-[400px] text-center">
+                  <EmptySection
+                    icon={FileAlertIcon}
+                    title="Unauthorized"
+                    description="You must be logged in to view this data. Please login to access your data."/>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-4 text-xs">

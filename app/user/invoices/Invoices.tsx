@@ -17,6 +17,7 @@ async function getData(): Promise<Invoices[]> {
       type: "local",
       storage: "Local",
       total: 1500,
+      
       items: 5,
       status: "pending",
       "serial no": "INV-001",
