@@ -74,7 +74,6 @@ export default function ImageInput({
   return (
     <div className={cn("flex w-full flex-col gap-1.5", className)}>
       <div className="relative">
-        {/* Drop area */}
         <div
           role="button"
           onClick={openFileDialog}
@@ -85,10 +84,10 @@ export default function ImageInput({
           data-dragging={isDragging || undefined}
           className="border-input hover:bg-accent/50 data-[dragging=true]:bg-accent/50 relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none"
         >
-          <input {...getInputProps()} className="sr-only" aria-label="Upload file" />
+          <input {...getInputProps()} className="sr-only" aria-label="Upload file"/>
           {previewUrl && allowPreview && !isLoading ? (
             <div className="absolute inset-0">
-              <img src={previewUrl} alt={files[0]?.file?.name || "Uploaded image"} className="size-full object-cover" />
+              <img src={previewUrl} alt={files[0]?.file?.name || "Uploaded image"} className="size-full object-cover"/>
             </div>
           ) : isLoading ? (
             <div className="flex flex-col items-center justify-center gap-2">
@@ -102,17 +101,24 @@ export default function ImageInput({
                   className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
                   aria-hidden="true"
                 >
-                  <ImageSparkleIcon className="size-4" />
+                  <ImageSparkleIcon className="size-4"/>
                 </div>
               )}
-              <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
+              <p className="text-xs font-medium sm:mb-1.5">{title}</p>
               {errors.length > 0 ? (
-                <div className="flex items-center gap-1 text-[10px] text-red-500" role="alert">
-                  {!disableIcon && <AlertCircleIcon className="size-3 shrink-0" />}
-                  <span>{errors[0]}</span>
+                <div
+                  className="flex flex-nowrap items-center gap-1 text-xs text-red-500 geist-sans whitespace-nowrap overflow-hidden"
+                  role="alert"
+                >
+                  {!disableIcon && (
+                    <AlertCircleIcon className="size-3 shrink-0" />
+                  )}
+                  <span className="truncate">{errors[0]}</span>
                 </div>
               ) : (
-                <p className="text-muted-foreground text-[10px]">Max size : {maxSizeMB * 1000}Kb (PNG , JPG)</p>
+                <p className="text-muted-foreground text-[10px] whitespace-nowrap">
+                  Max size : {maxSizeMB * 1000}Kb (PNG , JPG)
+                </p>
               )}
             </div>
           )}
