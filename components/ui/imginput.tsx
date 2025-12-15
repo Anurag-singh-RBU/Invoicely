@@ -141,29 +141,25 @@ export default function ImageInput({
           {errors.length > 0 ? (
             <div
               className="
-                flex
-                w-full
-                max-w-full
-                flex-nowrap
+                inline-flex
                 items-center
-                justify-center
                 gap-1
                 px-2
+                py-0.5
                 text-xs
                 text-red-500
                 geist-sans
                 whitespace-nowrap
-                overflow-hidden
+                bg-transparent
               "
               role="alert"
             >
               {!disableIcon && (
                 <AlertCircleIcon className="size-3 shrink-0" />
               )}
-              <span className="truncate">
-                {errors[0]}
-              </span>
+              <span>{errors[0]}</span>
             </div>
+
           ) : (
             <p className="text-muted-foreground text-[10px] whitespace-nowrap px-2">
               Max size : {maxSizeMB * 1000}Kb (PNG, JPG)
