@@ -82,7 +82,7 @@ export default function ImageInput({
           onDragOver={handleDragOver}
           onDrop={handleDrop}
           data-dragging={isDragging || undefined}
-          className="border-input hover:bg-accent/50 data-[dragging=true]:bg-accent/50 relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none"
+          className="border-input w-auto hover:bg-accent/50 data-[dragging=true]:bg-accent/50 relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none"
         >
           <input {...getInputProps()} className="sr-only" aria-label="Upload file"/>
           {previewUrl && allowPreview && !isLoading ? (
@@ -95,7 +95,7 @@ export default function ImageInput({
               <span className="text-muted-foreground text-xs">Uploading</span>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center px-4 py-3 text-center">
+            <div className="flex flex-col items-center justify-center px-4 py-3 text-center w-auto">
               {!disableIcon && (
                 <div
                   className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
@@ -107,7 +107,7 @@ export default function ImageInput({
               <p className="text-xs font-medium sm:mb-1.5">{title}</p>
               {errors.length > 0 ? (
                 <div
-                  className="flex flex-nowrap items-center gap-1 text-xs text-red-500 geist-sans whitespace-nowrap overflow-hidden"
+                  className="flex flex-nowrap items-center w-auto gap-1 text-xs text-red-500 geist-sans whitespace-nowrap overflow-hidden"
                   role="alert"
                 >
                   {!disableIcon && (
