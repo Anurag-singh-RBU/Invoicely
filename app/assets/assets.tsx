@@ -8,31 +8,18 @@ import {
 import { ImageSparkleIcon, SignatureIcon } from "@/assets/icons";
 import ImageInput from "@/components/ui/imginput";
 import SignatureInputModal from "@/components/ui/signinput";
-import { db } from "@/db/drizzle";
-import { authClient } from "@/lib/auth-client";
-import { userImgs } from "@/db/schema";
 
 export default function AssetsPage() {
-
-  const { data : session } = authClient.useSession();
 
   async function uploadToCloudinary(file : File){
 
     const formData = new FormData();
     formData.append("image", file);
 
-    const res = await fetch("/api/upload-images", {
+    await fetch("/api/upload-images", {
+
       method: "POST",
       body: formData,
-    });
-
-    const data = await res.json();
-    
-    await db.insert(userImgs).values({
-
-      id: crypto.randomUUID(),
-      userId: session?.user?.id || "",
-      imgUrl: data.imageUrl,
 
     });
 
@@ -57,7 +44,7 @@ export default function AssetsPage() {
                 title="Upload Logo"
                 maxSizeMB={2}
                 allowPreview={true}
-                onFileChange={(file) => {uploadToCloudinary(file)}}>
+                onFileChange={uploadToCloudinary}>
             </ImageInput>
             </div>
           </AccordionContent>
