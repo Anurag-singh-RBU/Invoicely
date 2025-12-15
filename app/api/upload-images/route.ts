@@ -1,12 +1,13 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
 import { db } from "@/db/drizzle";
 import { userImgs } from "@/db/schema";
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
 
 export async function POST(req: Request) {
-  
-  const { data : session } = authClient.useSession();
+  const session = await auth.api.getSession({ headers: req.headers });
 
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -27,7 +28,7 @@ export async function POST(req: Request) {
       { folder: "user-assets" },
       (error, result) => {
         if (error) reject(error);
-        resolve(result);
+        else resolve(result);
       }
     ).end(buffer);
   });
@@ -38,5 +39,8 @@ export async function POST(req: Request) {
     imgUrl: uploadResult.secure_url,
   });
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({
+    success: true,
+    imgUrl: uploadResult.secure_url,
+  });
 }
