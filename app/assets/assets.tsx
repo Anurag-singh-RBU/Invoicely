@@ -5,11 +5,12 @@ import {
   AccordionContent,
   AccordionItem,
 } from "@/components/ui/accordion";
-import { ImageSparkleIcon, SignatureIcon } from "@/assets/icons";
+import { ImageSparkleIcon, SignatureIcon, TrashIcon } from "@/assets/icons";
 import ImageInput from "@/components/ui/imginput";
 import SignatureInputModal from "@/components/ui/signinput";
 import { Key, useEffect, useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function AssetsPage() {
 
@@ -34,6 +35,7 @@ export default function AssetsPage() {
   }
 
   const [images, setImages] = useState<UserImage[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,35 +63,35 @@ export default function AssetsPage() {
               Manage the logos that are stored on your device.
             </p>
 
-            <div className="flex gap-3 mt-4 sm:w-fit w-full h-auto">
-              <ImageInput
-                title="Upload Logo"
-                maxSizeMB={2}
-                allowPreview={true}
-                onFileChange={uploadToCloudinary}>
-            </ImageInput>
-            {loading ? (
-                <p className="text-sm text-muted-foreground mt-4">Loading images</p>
-              ) : images.length === 0 ? (
-                <p className="text-sm text-muted-foreground mt-4">
-                  No logos uploaded yet
-                </p>
-              ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
-                  {images.map((img: { id: Key | null | undefined; imgUrl: string | Blob | undefined; }) => (
-                    typeof img.imgUrl === "string" && (
-                      <div
-                        key={img.id}
-                        className="rounded-md overflow-hidden border">
-                        <Image
-                          src={img.imgUrl}
-                          alt="User logo"
-                          className="w-full h-28 object-cover"/>
-                      </div>
-                    )
-                  ))}
+            <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-5">
+              <div className="relative aspect-square w-full overflow-hidden rounded-md border border-dashed">
+                <ImageInput
+                  title="Upload Logo"
+                  maxSizeMB={2}
+                  allowPreview={true}
+                  onFileChange={uploadToCloudinary}
+                  className="absolute inset-0"
+                />
+              </div>
+
+              {images.map((image) => (
+                <div
+                  key={image.id as Key}
+                  className="group relative aspect-square w-full overflow-hidden rounded-md bg-border/30">
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition">
+                    <TrashIcon className="size-4"/>
+                  </Button>
+                  <Image
+                    src={image.imgUrl}
+                    alt="User logo"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width : 768px) 50vw , 20vw"/>
                 </div>
-              )}
+              ))}
             </div>
           </AccordionContent>
         </AccordionItem>
