@@ -93,7 +93,7 @@ export default function ImageInput({
           ) : isLoading ? (
             <div className="flex flex-col items-center justify-center gap-2">
               <LoaderCircleIcon size={20} className={cn("animate-spin")} />
-              <span className="text-muted-foreground text-xs">Uploading...</span>
+              <span className="text-muted-foreground text-xs">Uploading</span>
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center px-4 py-3 text-center">

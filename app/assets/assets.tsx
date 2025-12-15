@@ -8,8 +8,16 @@ import {
 import { ImageSparkleIcon, SignatureIcon } from "@/assets/icons";
 import ImageInput from "@/components/ui/imginput";
 import SignatureInputModal from "@/components/ui/signinput";
+import { Key, useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function AssetsPage() {
+
+  type UserImage = {
+    id: string;
+    imgUrl: string;
+    createdAt: string;
+  };
 
   async function uploadToCloudinary(file : File){
 
@@ -25,6 +33,20 @@ export default function AssetsPage() {
 
   }
 
+  const [images, setImages] = useState<UserImage[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchImages() {
+      const res = await fetch("/api/user-images");
+      const data = await res.json();
+      setImages(data);
+      setLoading(false);
+    }
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="w-full">
       <Accordion type="multiple" defaultValue={["logos", "signatures"]}>
@@ -39,13 +61,35 @@ export default function AssetsPage() {
               Manage the logos that are stored on your device.
             </p>
 
-            <div className="mt-4 sm:w-fit w-full h-auto">
+            <div className="flex gap-3 mt-4 sm:w-fit w-full h-auto">
               <ImageInput
                 title="Upload Logo"
                 maxSizeMB={2}
                 allowPreview={true}
                 onFileChange={uploadToCloudinary}>
             </ImageInput>
+            {loading ? (
+                <p className="text-sm text-muted-foreground mt-4">Loading images</p>
+              ) : images.length === 0 ? (
+                <p className="text-sm text-muted-foreground mt-4">
+                  No logos uploaded yet
+                </p>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
+                  {images.map((img: { id: Key | null | undefined; imgUrl: string | Blob | undefined; }) => (
+                    typeof img.imgUrl === "string" && (
+                      <div
+                        key={img.id}
+                        className="rounded-md overflow-hidden border">
+                        <Image
+                          src={img.imgUrl}
+                          alt="User logo"
+                          className="w-full h-28 object-cover"/>
+                      </div>
+                    )
+                  ))}
+                </div>
+              )}
             </div>
           </AccordionContent>
         </AccordionItem>
