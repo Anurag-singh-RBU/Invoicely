@@ -58,7 +58,7 @@ export default function SignatureInputModal({
   const signaturePadRef = useRef<SignatureCanvas>(null);
   const [isSignatureEmpty, setIsSignatureEmpty] = useState<boolean>(true);
 
-  const maxSize = maxSizeMB * 1024 * 1024; // 5MB default
+  const maxSize = maxSizeMB * 1024 * 1024; 
 
   const [
     { files, isDragging, errors },
@@ -67,17 +67,13 @@ export default function SignatureInputModal({
     accept: "image/png, image/jpeg, image/jpg",
     maxSize,
     onFilesAdded: (files) => {
-      // if no file is added, return
       if (!files[0]) return;
 
-      // if signature change is not provided, return
       if (onSignatureChange) {
         onSignatureChange(files[0].preview || "");
       }
 
-      // if base64 change is not provided, return
       if (onBase64Change) {
-        // converting the file to base64
         const reader = new FileReader();
         reader.onload = () => {
           onBase64Change(reader.result as string);
@@ -89,15 +85,12 @@ export default function SignatureInputModal({
 
   const previewUrl = defaultUrl || "";
 
-  // Handle Clear signature
   const handleClear = () => {
     signaturePadRef.current?.clear();
   };
 
-  // Handle and Save signature
   const handleSave = () => {
     if (type !== "signature") return;
-    //   get the signature canvas
     const signatureCanvasUri = signaturePadRef.current?.toDataURL("image/png");
 
     if (!signatureCanvasUri) {
@@ -107,12 +100,10 @@ export default function SignatureInputModal({
       return;
     }
 
-    // set it to onBase64Change
     if (onBase64Change && signatureCanvasUri) {
       onBase64Change(signatureCanvasUri);
     }
 
-    // Convert to blob
     const signatureBlob = CreatePngFromBase64(signatureCanvasUri);
 
     if (!signatureBlob) {
@@ -122,19 +113,16 @@ export default function SignatureInputModal({
       return;
     }
 
-    // set modal to close
     setIsModalOpen(false);
-    // reset signature
     signaturePadRef.current?.clear();
     setIsSignatureEmpty(true);
+
   };
 
-  // Handle and Reset states when modal is closed
   const handleModalChange = (open: boolean) => {
     setIsModalOpen(open);
 
     if (!open) {
-      //   reset signature
       signaturePadRef.current?.clear();
       setIsSignatureEmpty(true);
     }
@@ -143,7 +131,6 @@ export default function SignatureInputModal({
   return (
     <>
       <div className="relative">
-        {/* Drop area */}
         <div className="border-input relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none">
           {previewUrl && allowPreview && !isLoading ? (
             <div className="absolute inset-0">
@@ -156,7 +143,6 @@ export default function SignatureInputModal({
             </div>
           ) : (
             <div className="flex h-full w-full flex-col">
-              {/* Custom Signature */}
               <div
                 role="button"
                 onClick={() => {
@@ -174,7 +160,6 @@ export default function SignatureInputModal({
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
                 <p className="text-muted-foreground text-[10px]">Canvas size : 330x330px</p>
               </div>
-              {/* Image Input for signature */}
               <div
                 role="button"
                 onClick={() => {
@@ -186,15 +171,13 @@ export default function SignatureInputModal({
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
                 data-dragging={isDragging || undefined}
-                className="hover:bg-accent/50 data-[dragging=true]:bg-accent/50 flex h-full pb-3 flex-col items-center justify-center text-center"
-              >
-                <input {...getInputProps()} className="sr-only" aria-label="Upload file" />
+                className="hover:bg-accent/50 data-[dragging=true]:bg-accent/50 flex h-full pb-3 flex-col items-center justify-center text-center">
+                <input {...getInputProps()} className="sr-only" aria-label="Upload file"/>
                 {!disableIcon && (
                   <div
                     className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
-                    aria-hidden="true"
-                  >
-                    <ImageSparkleIcon className="size-4" />
+                    aria-hidden="true">
+                    <ImageSparkleIcon className="size-4"/>
                   </div>
                 )}
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">Upload Signature</p>
@@ -227,14 +210,12 @@ export default function SignatureInputModal({
                   onBase64Change(undefined);
                 }
               }}
-              aria-label="Remove image"
-            >
-              <XIcon className="size-3" aria-hidden="true" />
+              aria-label="Remove image">
+              <XIcon className="size-3" aria-hidden="true"/>
             </button>
           </div>
         )}
       </div>
-      {/* Signature Input Modal */}
       <Dialog open={isModalOpen} onOpenChange={handleModalChange}>
         <DialogContent className="w-fit">
           <DialogHeaderContainer>

@@ -14,6 +14,15 @@ export const user = pgTable("user", {
     .notNull(),
 });
 
+export const userImgs = pgTable("user_imgs", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  imgUrl: text("img_url").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const session = pgTable(
   "session",
   {
@@ -92,4 +101,4 @@ export const accountRelations = relations(account, ({ one }) => ({
   }),
 }));
 
-export const schema = {user , session, account, verification};
+export const schema = {user , userImgs , session, account, verification};

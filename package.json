@@ -30,6 +30,7 @@
     "@tanstack/react-table": "^8.21.3",
     "better-auth": "^1.4.5",
     "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.8.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "currency-symbol-map": "^5.1.0",
