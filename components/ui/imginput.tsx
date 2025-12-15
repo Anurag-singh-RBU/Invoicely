@@ -139,34 +139,32 @@ export default function ImageInput({
           </p>
 
           {errors.length > 0 ? (
-  <div
-    role="alert"
-    className="
-      inline-flex
-      items-center
-      gap-1
-      rounded-sm
-      bg-red-50
-      px-2.5
-      py-1
-      text-xs
-      text-red-600
-      geist-sans
-      whitespace-nowrap
-      shadow-sm
-    "
-  >
-    {!disableIcon && (
-      <AlertCircleIcon className="size-3 shrink-0" />
-    )}
-    <span>{errors[0]}</span>
-  </div>
-) : (
-  <p className="text-muted-foreground text-[10px] px-2 whitespace-nowrap">
-    Max size : {maxSizeMB * 1000}Kb (PNG, JPG)
-  </p>
-)}
+            <div
+              className="
+                inline-flex
+                items-center
+                gap-1
+                px-2
+                py-0.5
+                text-xs
+                text-red-500
+                geist-sans
+                whitespace-nowrap
+                bg-transparent
+              "
+              role="alert"
+            >
+              {!disableIcon && (
+                <AlertCircleIcon className="size-3 shrink-0" />
+              )}
+              <span>{errors[0]}</span>
+            </div>
 
+          ) : (
+            <p className="text-muted-foreground text-[10px] whitespace-nowrap px-2">
+              Max size : {maxSizeMB * 1000}Kb (PNG, JPG)
+            </p>
+          )}
         </div>
       )}
     </div>
