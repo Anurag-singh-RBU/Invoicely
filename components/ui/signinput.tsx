@@ -37,6 +37,7 @@ interface SignatureInputModalProps {
   onBase64Change?: (base64: string | undefined) => void;
   onFileRemove?: () => void;
   onSignatureChange?: (signature: string) => void;
+  onFileSelect?: (file: File) => Promise<void> | void;
 }
 
 export default function SignatureInputModal({
@@ -51,6 +52,7 @@ export default function SignatureInputModal({
   onSignatureChange,
   onBase64Change,
   onFileRemove,
+  onFileSelect,
 }: SignatureInputModalProps) {
   const [darkMode, setDarkMode] = useState<boolean>(isDarkMode);
   const [type, setType] = useState<"signature" | "upload" | null>(null);
@@ -66,8 +68,14 @@ export default function SignatureInputModal({
   ] = useFileUpload({
     accept: "image/png, image/jpeg, image/jpg",
     maxSize,
-    onFilesAdded: (files) => {
+    onFilesAdded: async (files) => {
       if (!files[0]) return;
+
+      const file = files[0].file as File;
+
+      if (onFileSelect) {
+        await onFileSelect(file);
+      }
 
       if (onSignatureChange) {
         onSignatureChange(files[0].preview || "");

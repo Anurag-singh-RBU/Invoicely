@@ -23,7 +23,7 @@ export const userImgs = pgTable("user_imgs", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const userSigns = pgTable("user_imgs", {
+export const userSigns = pgTable("user_signs", {
   id: text("id").primaryKey(),
   userId: text("user_id")
     .notNull()

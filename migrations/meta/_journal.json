@@ -15,6 +15,13 @@
       "when": 1765893057066,
       "tag": "0001_quick_wendell_vaughn",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1765893547420,
+      "tag": "0002_conscious_amazoness",
+      "breakpoints": true
     }
   ]
 }

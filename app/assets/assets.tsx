@@ -34,6 +34,20 @@ export default function AssetsPage() {
 
   }
 
+  async function uploadSignatureToCloudinary(file : File){
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    await fetch("/api/upload-signs", {
+
+      method: "POST",
+      body: formData,
+
+    });
+
+  }
+
   const [images, setImages] = useState<UserImage[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(true);
@@ -121,7 +135,7 @@ export default function AssetsPage() {
             </p>
 
             <div className="mt-5 sm:w-fit w-full h-auto">
-              <SignatureInputModal></SignatureInputModal>
+              <SignatureInputModal onFileSelect={uploadToCloudinary}></SignatureInputModal>
             </div>
           </AccordionContent>
         </AccordionItem>
