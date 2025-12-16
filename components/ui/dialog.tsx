@@ -73,7 +73,7 @@ const DialogIcon = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
 DialogIcon.displayName = "DialogIcon";
 
 const DialogHeaderContainer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-row items-center gap-2 border-b p-3", className)} {...props} />
+  <div className={cn("flex flex-row items-center gap-2 p-3", className)} {...props} />
 );
 DialogHeaderContainer.displayName = "DialogHeaderContainer";
 
@@ -88,7 +88,7 @@ const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 DialogHeader.displayName = "DialogHeader";
 
 const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-row justify-end space-x-2 border-t p-3", className)} {...props} />
+  <div className={cn("flex flex-row justify-end space-x-2 px-3 py-4", className)} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
 
@@ -98,7 +98,7 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-sm leading-none font-medium tracking-tight capitalize", className)}
+    className={cn("font-bold instrument-serif capitalize", className)}
     {...props}
   />
 ));
@@ -110,7 +110,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-muted-foreground/80 text-xs leading-none tracking-tight", className)}
+    className={cn("text-muted-foreground/80 text-sm tracking-wider px-3 mb-5", className)}
     {...props}
   />
 ));
