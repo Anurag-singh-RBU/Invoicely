@@ -23,6 +23,16 @@ export const userImgs = pgTable("user_imgs", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const userSigns = pgTable("user_imgs", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  signUrl: text("sign_url").notNull(),
+  publicId: text("public_id").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const session = pgTable(
   "session",
   {
@@ -101,4 +111,4 @@ export const accountRelations = relations(account, ({ one }) => ({
   }),
 }));
 
-export const schema = {user , userImgs , session, account, verification};
+export const schema = {user , userImgs , userSigns , session, account, verification};
