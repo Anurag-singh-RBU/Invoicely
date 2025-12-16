@@ -49,6 +49,18 @@ export default function AssetsPage() {
     fetchImages();
   }, []);
 
+  async function deleteImage(id: string){
+
+    await fetch(`/api/user-images/${id}`, {
+
+      method: "DELETE",
+
+    });
+
+    setImages(images.filter((image) => image.id !== id));
+
+  }
+
   return (
     <div className="w-full">
       <Accordion type="multiple" defaultValue={["logos", "signatures"]}>
@@ -81,7 +93,8 @@ export default function AssetsPage() {
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition">
+                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition"
+                    onClick={() => deleteImage(image.id)}>
                     <TrashIcon className="size-4"/>
                   </Button>
                   <Image

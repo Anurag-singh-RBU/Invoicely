@@ -1,7 +1,6 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { XIcon } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -38,7 +37,6 @@ function DialogOverlay({ className, ...props }: React.ComponentProps<typeof Dial
 function DialogContent({
   className,
   children,
-  hideCloseButton = false,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & { hideCloseButton?: boolean }) {
   return (
