@@ -135,7 +135,7 @@ export default function AssetsPage() {
             </p>
 
             <div className="mt-5 sm:w-fit w-full h-auto">
-              <SignatureInputModal onFileSelect={uploadToCloudinary}></SignatureInputModal>
+              <SignatureInputModal onFileSelect={uploadSignatureToCloudinary}></SignatureInputModal>
             </div>
           </AccordionContent>
         </AccordionItem>
