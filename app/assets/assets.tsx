@@ -20,6 +20,13 @@ export default function AssetsPage() {
     createdAt: string;
   };
 
+  type UserSignature = {
+    id: string;
+    signUrl: string;
+    publicId: string;
+    createdAt: string;
+  };
+
   async function uploadToCloudinary(file : File){
 
     const formData = new FormData();
@@ -47,6 +54,22 @@ export default function AssetsPage() {
     });
 
   }
+
+  const [signs , setSigns] = useState<UserSignature[]>([]);
+
+  useEffect(() => {
+
+    async function fetchSignatures() {
+
+      const res = await fetch("/api/user-signs");
+      const data = await res.json();
+      setSigns(data);
+
+    }
+
+    fetchSignatures();
+
+  }, []);
 
   const [images, setImages] = useState<UserImage[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -123,22 +146,38 @@ export default function AssetsPage() {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="logos" className="border-b">
-            <div className="flex bg-gray-50 dark:bg-neutral-900 items-center gap-2 text-primary hover:bg-card data-[state=open]:bg-card data-[state=open]:text-primary data-[state=open]:[&>svg]:text-primary flex-1 cursor-pointer px-4 py-4 text-left text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 border-b w-full">
-              <SignatureIcon/>
-              <span className="font-medium">Signatures</span>
-            </div>
+       <AccordionItem value="logos" className="border-b">
+          <div className="flex bg-gray-50 h-fit dark:bg-neutral-900 items-center gap-2 px-4 py-4 text-sm font-medium border-b w-full cursor-pointer hover:bg-card 
+          data-[state=open]:bg-card data-[state=open]:text-primary data-[state=open]:[&>svg]:text-primary flex-1 outline-none disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180">
+            <SignatureIcon/>
+            <span>Signatures</span>
+          </div>
+
           <AccordionContent className="px-6 pb-6 py-4">
-            <h3 className="instrument-serif text-xl font-bold" style={{wordSpacing: '2px'}}>Local Signatures</h3>
+            <h3 className="instrument-serif text-xl font-bold">
+              Local Signatures
+            </h3>
             <p className="text-muted-foreground text-xs mt-1">
               Manage the signature that are stored on your device.
             </p>
 
-            <div className="mt-5 sm:w-fit w-full h-auto">
-              <SignatureInputModal onFileSelect={uploadToCloudinary}></SignatureInputModal>
+            <div className="mt-5 flex flex-col sm:flex-row gap-4 items-start">
+
+              <div className="h-fit w-fit">
+                <SignatureInputModal onFileSelect={uploadSignatureToCloudinary} allowPreview/>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 h-fit w-fit">
+                {signs.map((signs) => (
+                  <div key={signs.id as Key} className=" h-[235px] w-[230px] rounded-md border bg-muted/40 flex items-center justify-center overflow-hidden">
+                    <Image src={signs.signUrl} alt="User Signature" width={230} height={235} className="max-h-full max-w-full object-contain p-2"/>
+                  </div>
+                ))}
+              </div>
             </div>
           </AccordionContent>
         </AccordionItem>
+
       </Accordion>
     </div>
   );
