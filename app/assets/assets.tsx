@@ -169,8 +169,8 @@ export default function AssetsPage() {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 h-fit w-fit">
                 {signs.map((signs) => (
-                  <div key={signs.id as Key} className=" h-[235px] w-[230px] rounded-md border bg-muted/40 flex items-center justify-center overflow-hidden">
-                    <Image src={signs.signUrl} alt="User Signature" width={230} height={235} className="max-h-full max-w-full object-contain p-2"/>
+                  <div key={signs.id as Key} className="h-auto w-auto rounded-md border bg-muted/40 flex items-center justify-center overflow-hidden">
+                    <Image src={signs.signUrl} alt="User Signature" className="object-cover" sizes="(max-width : 768px) 50vw , 20vw"/>
                   </div>
                 ))}
               </div>
