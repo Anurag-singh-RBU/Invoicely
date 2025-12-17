@@ -227,7 +227,7 @@ export default function SignatureInputModal({
         <DialogContent className="w-fit">
           <DialogHeaderContainer>
             <DialogIcon>
-              <SignatureIcon className="size-4 rotate-12"/>
+              <SignatureIcon className="size-4 rotate-12" />
             </DialogIcon>
             <DialogHeader>
               <DialogTitle>Company Signature</DialogTitle>
@@ -243,8 +243,9 @@ export default function SignatureInputModal({
                   animate={{ filter: "blur(0px)", top: 6 }}
                   exit={{ filter: "blur(1px)", top: -24 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute right-1.5 z-10 flex items-center justify-center">
-                  <Button variant="destructive" onClick={handleClear}>
+                  className="absolute right-1.5 z-10 flex items-center justify-center"
+                >
+                  <Button variant="destructive" size="sm" onClick={handleClear}>
                     Clear
                   </Button>
                 </motion.div>
@@ -256,8 +257,8 @@ export default function SignatureInputModal({
                 penColor={darkMode ? "white" : "black"}
                 backgroundColor={darkMode ? "#181818" : "#ffffff"}
                 canvasProps={{ 
-                  className: "signature-canvas w-full h-full max-w-[350px] max-h-[330px] min-w-[280px] min-h-[200px] aspect-square" 
-                }}/>
+                  className: "signature-canvas w-full h-full max-w-[330px] max-h-[330px] min-w-[280px] min-h-[200px] aspect-square" 
+                }}              />
             </div>
           </DialogContentContainer>
           <DialogFooter>
