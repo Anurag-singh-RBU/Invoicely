@@ -230,10 +230,10 @@ export default function SignatureInputModal({
             </DialogIcon>
 
             <DialogHeader>
-              <DialogTitle>
+              <DialogTitle style={{wordSpacing: "3px"}}>
                 Company Signature
               </DialogTitle>
-              <DialogDescription>
+              <DialogDescription className="tracking-wide">
                 Draw your signature here
               </DialogDescription>
             </DialogHeader>
