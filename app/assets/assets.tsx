@@ -161,19 +161,33 @@ export default function AssetsPage() {
               Manage the signature that are stored on your device.
             </p>
 
-            <div className="mt-5 flex flex-col sm:flex-row gap-4 items-start">
-
-              <div className="h-fit w-fit">
-                <SignatureInputModal onFileSelect={uploadSignatureToCloudinary} allowPreview/>
+            <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-5">
+              <div className="relative aspect-square w-full overflow-hidden rounded-md border border-dashed">
+                <SignatureInputModal
+                  title="Upload Signature"
+                  allowPreview={true}
+                  onFileSelect={uploadSignatureToCloudinary}
+                  className="absolute inset-0"/>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 h-fit w-fit">
-                {signs.map((signs) => (
-                  <div key={signs.id as Key} className="h-auto w-auto rounded-md border bg-muted/40 flex items-center justify-center overflow-hidden">
-                    <Image src={signs.signUrl} alt="User Signature" className="object-cover" sizes="(max-width : 768px) 50vw , 20vw"/>
-                  </div>
-                ))}
-              </div>
+              {signs.map((sign) => (
+                <div
+                  key={sign.id as Key}
+                  className="group relative aspect-square w-full overflow-hidden rounded-md bg-border/30">
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition">
+                    <TrashIcon className="size-4"/>
+                  </Button>
+                  <Image
+                    src={sign.signUrl}
+                    alt="User logo"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width : 768px) 50vw , 20vw"/>
+                </div>
+              ))}
             </div>
           </AccordionContent>
         </AccordionItem>
