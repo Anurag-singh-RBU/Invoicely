@@ -12,6 +12,7 @@ import { Key, useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CreatePngFromBase64 } from "@/lib/pngFbase24";
+import { toast } from "sonner";
 
 export default function AssetsPage() {
 
@@ -89,6 +90,7 @@ export default function AssetsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
     async function fetchImages() {
       const res = await fetch("/api/user-images");
       const data = await res.json();
@@ -97,18 +99,59 @@ export default function AssetsPage() {
     }
 
     fetchImages();
+    
   }, []);
 
-  async function deleteImage(id: string){
+  async function deleteImage(id: string) {
 
-    await fetch(`/api/user-images/${id}`, {
+    try {
+      const res = await fetch(`/api/user-images/${id}`, {
+        method: "DELETE",
+      });
 
-      method: "DELETE",
+      if (!res.ok) throw new Error();
 
-    });
+      setImages(images.filter((image) => image.id !== id));
 
-    setImages(images.filter((image) => image.id !== id));
+      toast.success("Image deleted successfully !!");
 
+    } 
+    
+    catch {
+
+      toast.error("Failed to delete image");
+
+    }
+
+  }
+
+  async function deleteSignature(id: string, publicId: string) {
+
+    try {
+
+      const res = await fetch(`/api/user-signs/${id}`, {
+
+        method: "DELETE",
+        body: JSON.stringify({ publicId }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+      });
+
+      if (!res.ok) throw new Error();
+
+      setSigns(signs.filter((sign) => sign.id !== id));
+
+      toast.success("Signature deleted successfully !!");
+
+    } 
+    
+    catch {
+
+      toast.error("Failed to delete signature");
+
+    }
   }
 
   return (
@@ -187,7 +230,8 @@ export default function AssetsPage() {
                   <Button
                     variant="ghost"
                     size="icon-sm"
-                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition">
+                    className="absolute top-2 right-2 z-10 px-0.5! text-red-500 hover:bg-red-500! hover:text-white! transition"
+                    onClick={() => deleteSignature(sign.id , sign.publicId)}>
                     <TrashIcon className="size-4"/>
                   </Button>
                   <Image
