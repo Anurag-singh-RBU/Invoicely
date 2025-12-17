@@ -1,7 +1,6 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { XIcon } from "lucide-react";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -38,7 +37,6 @@ function DialogOverlay({ className, ...props }: React.ComponentProps<typeof Dial
 function DialogContent({
   className,
   children,
-  hideCloseButton = false,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & { hideCloseButton?: boolean }) {
   return (
@@ -53,12 +51,6 @@ function DialogContent({
         {...props}
       >
         {children}
-        {!hideCloseButton && (
-          <DialogPrimitive.Close className="data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-3 right-3 rounded-xs opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5">
-            <XIcon />
-            <span className="sr-only">Close</span>
-          </DialogPrimitive.Close>
-        )}
       </DialogPrimitive.Content>
     </DialogPortal>
   );
@@ -73,7 +65,7 @@ const DialogIcon = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
 DialogIcon.displayName = "DialogIcon";
 
 const DialogHeaderContainer = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-row items-center gap-2 border-b p-3", className)} {...props} />
+  <div className={cn("flex flex-row items-center gap-2 p-3", className)} {...props} />
 );
 DialogHeaderContainer.displayName = "DialogHeaderContainer";
 
@@ -88,7 +80,7 @@ const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 DialogHeader.displayName = "DialogHeader";
 
 const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-row justify-end space-x-2 border-t p-3", className)} {...props} />
+  <div className={cn("flex flex-row justify-end space-x-2 px-3 py-4", className)} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
 
@@ -98,7 +90,7 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={cn("text-sm leading-none font-medium tracking-tight capitalize", className)}
+    className={cn("font-bold instrument-serif capitalize", className)}
     {...props}
   />
 ));
@@ -110,7 +102,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-muted-foreground/80 text-xs leading-none tracking-wider", className)}
+    className={cn("text-muted-foreground/80 text-sm tracking-wider px-3 mb-5", className)}
     {...props}
   />
 ));
