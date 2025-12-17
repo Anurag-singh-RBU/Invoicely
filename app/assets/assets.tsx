@@ -11,6 +11,7 @@ import SignatureInputModal from "@/components/ui/signinput";
 import { Key, useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { CreatePngFromBase64 } from "@/lib/pngFbase24";
 
 export default function AssetsPage() {
 
@@ -25,6 +26,18 @@ export default function AssetsPage() {
     signUrl: string;
     publicId: string;
     createdAt: string;
+  };
+
+  const uploadCanvasSignature = async (base64: string) => {
+    const blob = CreatePngFromBase64(base64);
+    if (!blob) return;
+
+    // eslint-disable-next-line react-hooks/purity
+    const file = new File([blob], `signature-${Date.now()}.png`, {
+      type: "image/png",
+    });
+
+    await uploadSignatureToCloudinary(file);
   };
 
   async function uploadToCloudinary(file : File){
@@ -146,7 +159,7 @@ export default function AssetsPage() {
           </AccordionContent>
         </AccordionItem>
 
-       <AccordionItem value="logos" className="border-b">
+       <AccordionItem value="signatures" className="border-b">
           <div className="flex bg-gray-50 dark:bg-neutral-900 items-center gap-2 text-primary hover:bg-card data-[state=open]:bg-card data-[state=open]:text-primary data-[state=open]:[&>svg]:text-primary flex-1 cursor-pointer px-4 py-4 text-left text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 border-b w-full">
             <SignatureIcon/>
             <span className="font-medium">Signatures</span>
@@ -162,7 +175,9 @@ export default function AssetsPage() {
 
             <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-5">
               <div className="relative aspect-square w-full overflow-hidden rounded-md border border-dashed">
-                <SignatureInputModal title="Upload Signature" allowPreview={true} onFileSelect={uploadSignatureToCloudinary} className="absolute inset-0"/>
+                <SignatureInputModal title="Upload Signature" allowPreview={true} 
+                onFileSelect={uploadSignatureToCloudinary} onSaveCanvas={uploadCanvasSignature}
+                className="absolute inset-0"/>
               </div>
 
               {signs.map((sign) => (

@@ -37,6 +37,7 @@ interface SignatureInputModalProps {
   onBase64Change?: (base64: string | undefined) => void;
   onFileRemove?: () => void;
   onSignatureChange?: (signature: string) => void;
+  onSaveCanvas?: (base64: string) => Promise<void> | void;
   onFileSelect?: (file: File) => Promise<void> | void;
 }
 
@@ -53,6 +54,7 @@ export default function SignatureInputModal({
   onBase64Change,
   onFileRemove,
   onFileSelect,
+  onSaveCanvas,
 }: SignatureInputModalProps) {
   const [darkMode, setDarkMode] = useState<boolean>(isDarkMode);
   const [type, setType] = useState<"signature" | "upload" | null>(null);
@@ -97,29 +99,20 @@ export default function SignatureInputModal({
     signaturePadRef.current?.clear();
   };
 
-  const handleSave = () => {
-    if (type !== "signature") return;
-    const signatureCanvasUri = signaturePadRef.current?.toDataURL("image/png");
+  const handleSave = async () => {
+    const base64 = signaturePadRef.current?.toDataURL("image/png");
+    if (!base64) return;
 
-    if (!signatureCanvasUri) {
-      toast.error("No signature found", {
-        description: "Please draw your signature and try again",
-      });
-      return;
+    if (onSaveCanvas) {
+      await onSaveCanvas(base64);
     }
 
-    if (onBase64Change && signatureCanvasUri) {
-      onBase64Change(signatureCanvasUri);
-    }
+    closeAndReset();
+    toast.success("Signature saved successfully");
 
-    const signatureBlob = CreatePngFromBase64(signatureCanvasUri);
+  };
 
-    if (!signatureBlob) {
-      toast.error("No signature found", {
-        description: "Please draw your signature and try again",
-      });
-      return;
-    }
+  const closeAndReset = () => {
 
     setIsModalOpen(false);
     signaturePadRef.current?.clear();
@@ -152,7 +145,6 @@ export default function SignatureInputModal({
             </div>
           ) : (
             <div className="flex h-full w-full flex-col">
-              {/* Custom Signature */}
               <div
                 role="button"
                 onClick={() => {
@@ -172,7 +164,6 @@ export default function SignatureInputModal({
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
                 <p className="text-muted-foreground text-[10px]">Canvas size : 330x330px</p>
               </div>
-              {/* Image Input for signature */}
               <div
                 role="button"
                 onClick={() => {
@@ -284,3 +275,6 @@ export default function SignatureInputModal({
     </>
   );
 }
+
+
+
