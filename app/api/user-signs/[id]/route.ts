@@ -3,7 +3,7 @@ import { userSigns } from "@/db/schema";
 import cloudinary from "@/lib/cloudinary";
 import { eq } from "drizzle-orm";
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
 
     const { id } = await params;
     const { publicId } = await request.json();
