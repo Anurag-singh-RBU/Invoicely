@@ -175,7 +175,7 @@ export default function AssetsPage() {
 
             <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-5">
               <div className="relative aspect-square w-full overflow-hidden rounded-md border border-dashed">
-                <SignatureInputModal title="Upload Signature" allowPreview={true} 
+                <SignatureInputModal allowPreview={true} 
                 onFileSelect={uploadSignatureToCloudinary} onSaveCanvas={uploadCanvasSignature}
                 className="absolute inset-0"/>
               </div>

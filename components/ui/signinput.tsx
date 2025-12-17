@@ -158,10 +158,10 @@ export default function SignatureInputModal({
                     className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
                     aria-hidden="true"
                   >
-                    <SignatureIcon className="size-4 rotate-12" />
+                    <SignatureIcon className="size-4 rotate-12"/>
                   </div>
                 )}
-                <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
+                <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">Draw Signature</p>
                 <p className="text-muted-foreground text-[10px]">Canvas size : 330x330px</p>
               </div>
               <div
@@ -226,12 +226,17 @@ export default function SignatureInputModal({
       <Dialog open={isModalOpen} onOpenChange={handleModalChange}>
         <DialogContent className="w-fit">
           <DialogHeaderContainer>
-            <DialogIcon>
-              <SignatureIcon className="size-4 rotate-12" />
+           <DialogIcon className="flex h-9 w-9 items-center justify-center rounded-md bg-muted">
+              <SignatureIcon className="h-4 w-4 -rotate-12" />
             </DialogIcon>
-            <DialogHeader>
-              <DialogTitle>Company Signature</DialogTitle>
-              <DialogDescription>Draw your signature here</DialogDescription>
+
+            <DialogHeader className="flex flex-col gap-0.5">
+              <DialogTitle className="text-sm font-semibold leading-5 tracking-wider">
+                Company Signature
+              </DialogTitle>
+              <DialogDescription className="text-xs leading-4 text-muted-foreground">
+                Draw your signature here
+              </DialogDescription>
             </DialogHeader>
           </DialogHeaderContainer>
           <DialogContentContainer>
