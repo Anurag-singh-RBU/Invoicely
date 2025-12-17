@@ -12,8 +12,7 @@ import {
   DialogHeaderContainer,
   DialogIcon,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { CreatePngFromBase64 } from "@/lib/pngFbase24";
+} from "@/components/ui/canvas-dialog";
 import { AlertCircleIcon, LoaderCircleIcon, XIcon } from "lucide-react";
 import { ImageSparkleIcon, SignatureIcon } from "@/assets/icons";
 import { useFileUpload } from "@/hooks/use-file-upload";
@@ -227,14 +226,14 @@ export default function SignatureInputModal({
         <DialogContent className="w-fit">
           <DialogHeaderContainer>
            <DialogIcon className="flex h-9 w-9 items-center justify-center rounded-md bg-muted">
-              <SignatureIcon className="h-4 w-4 -rotate-12" />
+              <SignatureIcon className="h-4 w-4 -rotate-12"/>
             </DialogIcon>
 
-            <DialogHeader className="flex flex-col gap-0.5">
-              <DialogTitle className="text-sm font-semibold leading-5 tracking-wider">
+            <DialogHeader>
+              <DialogTitle>
                 Company Signature
               </DialogTitle>
-              <DialogDescription className="text-xs leading-4 text-muted-foreground">
+              <DialogDescription>
                 Draw your signature here
               </DialogDescription>
             </DialogHeader>
