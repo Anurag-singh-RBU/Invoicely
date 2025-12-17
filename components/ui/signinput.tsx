@@ -139,35 +139,40 @@ export default function SignatureInputModal({
   return (
     <>
       <div className="relative">
+        {/* Drop area */}
         <div className="border-input relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none">
           {previewUrl && allowPreview && !isLoading ? (
             <div className="absolute inset-0">
-              <img src={previewUrl} alt="user signature" className="size-full object-cover"/>
+              <img src={previewUrl} alt="user signature" className="size-full object-cover" />
             </div>
           ) : isLoading ? (
             <div className="flex flex-col items-center justify-center gap-2">
-              <LoaderCircleIcon size={20} className={cn("animate-spin")} />
+              <LoaderCircleIcon size={20} className={cn("animate-spin")}/>
               <span className="text-muted-foreground text-xs">Uploading</span>
             </div>
           ) : (
             <div className="flex h-full w-full flex-col">
+              {/* Custom Signature */}
               <div
                 role="button"
                 onClick={() => {
                   setType("signature");
                   setIsModalOpen(true);
                 }}
-                className="hover:bg-accent/50 flex px-6 py-5 h-full flex-col items-center justify-center border-b border-dashed text-center">
+                className="hover:bg-accent/50 flex h-full flex-col items-center justify-center border-b border-dashed text-center"
+              >
                 {!disableIcon && (
                   <div
                     className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
-                    aria-hidden="true">
-                    <SignatureIcon className="size-4 rotate-12"/>
+                    aria-hidden="true"
+                  >
+                    <SignatureIcon className="size-4 rotate-12" />
                   </div>
                 )}
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">{title}</p>
                 <p className="text-muted-foreground text-[10px]">Canvas size : 330x330px</p>
               </div>
+              {/* Image Input for signature */}
               <div
                 role="button"
                 onClick={() => {
@@ -179,13 +184,15 @@ export default function SignatureInputModal({
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
                 data-dragging={isDragging || undefined}
-                className="hover:bg-accent/50 data-[dragging=true]:bg-accent/50 flex h-full pb-3 flex-col items-center justify-center text-center">
-                <input {...getInputProps()} className="sr-only" aria-label="Upload file"/>
+                className="hover:bg-accent/50 data-[dragging=true]:bg-accent/50 flex h-full flex-col items-center justify-center text-center"
+              >
+                <input {...getInputProps()} className="sr-only" aria-label="Upload file" />
                 {!disableIcon && (
                   <div
                     className="bg-muted mb-2 flex size-7 shrink-0 items-center justify-center rounded-full sm:size-9"
-                    aria-hidden="true">
-                    <ImageSparkleIcon className="size-4"/>
+                    aria-hidden="true"
+                  >
+                    <ImageSparkleIcon className="size-4" />
                   </div>
                 )}
                 <p className="text-[10px] font-medium sm:mb-1.5 sm:text-xs">Upload Signature</p>
@@ -195,7 +202,7 @@ export default function SignatureInputModal({
                     <span>{errors[0]}</span>
                   </div>
                 ) : (
-                  <p className="text-muted-foreground text-[10px]">Max size : {maxSizeMB * 1000}Kb (PNG , JPG)</p>
+                  <p className="text-muted-foreground text-[10px]">Max size : {maxSizeMB * 1000}Kb (PNG, JPG)</p>
                 )}
               </div>
             </div>
@@ -218,8 +225,9 @@ export default function SignatureInputModal({
                   onBase64Change(undefined);
                 }
               }}
-              aria-label="Remove image">
-              <XIcon className="size-3" aria-hidden="true"/>
+              aria-label="Remove image"
+            >
+              <XIcon className="size-3" aria-hidden="true" />
             </button>
           </div>
         )}
