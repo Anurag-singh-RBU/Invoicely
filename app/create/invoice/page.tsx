@@ -1,8 +1,15 @@
+"use client"
+
 import React from 'react'
+import InvHeader from './(Template)/InvHeader'
+import { InvForm } from './(Template)/InvForm'
 
 const page = () => {
   return (
-    <div></div>
+    <div>
+      <InvHeader/>
+      <InvForm/>
+    </div>
   )
 }
 
