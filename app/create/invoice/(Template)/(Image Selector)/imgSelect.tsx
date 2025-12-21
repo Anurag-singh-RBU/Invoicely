@@ -88,33 +88,18 @@ export default function ImageInput({
     <div className={cn("flex w-full flex-col gap-1.5", className)}>
       <div className="relative w-full">
         <div
-          role="button"
-          onClick={openFileDialog}
-          onDragEnter={handleDragEnter}
-          onDragLeave={handleDragLeave}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          data-dragging={isDragging || undefined}
+          role="button" onClick={openFileDialog} onDragEnter={handleDragEnter} onDragLeave={handleDragLeave} onDragOver={handleDragOver} onDrop={handleDrop} data-dragging={isDragging || undefined}
           className="
-            border-input w-full hover:bg-accent/50 data-[dragging=true]:bg-accent/50 relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none"
-        >
-          <input
-            {...getInputProps()}
-            className="sr-only"
-            aria-label="Upload file"
-          />
+            border-input w-full hover:bg-accent/50 data-[dragging=true]:bg-accent/50 relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[img]:border-none">
+          <input {...getInputProps()} className="sr-only" aria-label="Upload file"/>
 
           {previewUrl && allowPreview && !isLoading ? (
             <div className="absolute inset-0">
-              <img
-                src={previewUrl}
-                alt="Uploaded image"
-                className="size-full object-cover"
-              />
+              <img src={previewUrl} alt="Uploaded image" className="size-full object-cover"/>
             </div>
           ) : isLoading ? (
             <div className="flex flex-col items-center justify-center gap-2">
-              <LoaderCircleIcon size={20} className="animate-spin" />
+              <LoaderCircleIcon size={20} className="animate-spin"/>
               <span className="text-muted-foreground text-xs">
                 Uploading
               </span>
@@ -123,7 +108,7 @@ export default function ImageInput({
             <div className="flex w-full flex-col items-center justify-center px-4 py-3 text-center">
               {!disableIcon && (
                 <div className="bg-muted mb-2 flex size-7 items-center justify-center rounded-full sm:size-9">
-                  {type === "logo" ? <ImageSparkleIcon className="size-4" /> : <SignatureIcon className="size-4"></SignatureIcon>}
+                  {type === "logo" ? <ImageSparkleIcon className="size-4"/> : <SignatureIcon className="size-4"></SignatureIcon>}
                 </div>
               )}
 
@@ -140,28 +125,9 @@ export default function ImageInput({
 
         {previewUrl && allowPreview && !isLoading && (
           <div className="absolute top-4 right-4">
-            <button
-              type="button"
-              onClick={() => {
-                removeFile(files[0]?.id);
-                onFileRemove?.(files[0]?.id);
-                onBase64Change?.(undefined);
-                toast.info("Image removed");
-              }}
-              className="
-                z-50
-                flex
-                size-5
-                items-center
-                justify-center
-                rounded-full
-                bg-black/60
-                text-white
-                hover:bg-black/80
-              "
-              aria-label="Remove image"
-            >
-              <XIcon className="size-3" />
+            <button type="button" onClick={() => { removeFile(files[0]?.id); onFileRemove?.(files[0]?.id); onBase64Change?.(undefined); toast.info("Image removed"); }} 
+            className="z-50 flex size-5 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80" aria-label="Remove image">
+              <XIcon className="size-3"/>
             </button>
           </div>
         )}
