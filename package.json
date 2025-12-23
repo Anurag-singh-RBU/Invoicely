@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@everapi/currencyapi-js": "^1.0.6",
     "@hookform/resolvers": "^5.2.2",
     "@mantine/hooks": "^8.3.10",
     "@neondatabase/serverless": "^1.0.2",

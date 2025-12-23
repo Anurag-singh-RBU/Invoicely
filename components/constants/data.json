@@ -1,0 +1,266 @@
+[
+  {
+    "name": "US Dollar",
+    "abbreviation": "USD",
+    "symbol": "$",
+    "icon": "🇺🇸"
+  },
+  {
+    "name": "Euro",
+    "abbreviation": "EUR",
+    "symbol": "€",
+    "icon": "🇪🇺"
+  },
+  {
+    "name": "British Pound Sterling",
+    "abbreviation": "GBP",
+    "symbol": "£",
+    "icon": "🇬🇧"
+  },
+  {
+    "name": "Japanese Yen",
+    "abbreviation": "JPY",
+    "symbol": "¥",
+    "icon": "🇯🇵"
+  },
+  {
+    "name": "Swiss Franc",
+    "abbreviation": "CHF",
+    "symbol": "Fr.",
+    "icon": "🇨🇭"
+  },
+  {
+    "name": "Canadian Dollar",
+    "abbreviation": "CAD",
+    "symbol": "$",
+    "icon": "🇨🇦"
+  },
+  {
+    "name": "Australian Dollar",
+    "abbreviation": "AUD",
+    "symbol": "$",
+    "icon": "🇦🇺"
+  },
+  {
+    "name": "Chinese Yuan",
+    "abbreviation": "CNY",
+    "symbol": "¥",
+    "icon": "🇨🇳"
+  },
+  {
+    "name": "Indian Rupee",
+    "abbreviation": "INR",
+    "symbol": "₹",
+    "icon": "🇮🇳"
+  },
+  {
+    "name": "Russian Ruble",
+    "abbreviation": "RUB",
+    "symbol": "₽",
+    "icon": "🇷🇺"
+  },
+  {
+    "name": "Brazilian Real",
+    "abbreviation": "BRL",
+    "symbol": "R$",
+    "icon": "🇧🇷"
+  },
+  {
+    "name": "South African Rand",
+    "abbreviation": "ZAR",
+    "symbol": "R",
+    "icon": "🇿🇦"
+  },
+  {
+    "name": "Singapore Dollar",
+    "abbreviation": "SGD",
+    "symbol": "$",
+    "icon": "🇸🇬"
+  },
+  {
+    "name": "Hong Kong Dollar",
+    "abbreviation": "HKD",
+    "symbol": "$",
+    "icon": "🇭🇰"
+  },
+  {
+    "name": "New Zealand Dollar",
+    "abbreviation": "NZD",
+    "symbol": "$",
+    "icon": "🇳🇿"
+  },
+  {
+    "name": "Mexican Peso",
+    "abbreviation": "MXN",
+    "symbol": "$",
+    "icon": "🇲🇽"
+  },
+  {
+    "name": "Saudi Riyal",
+    "abbreviation": "SAR",
+    "symbol": "﷼",
+    "icon": "🇸🇦"
+  },
+  {
+    "name": "Turkish Lira",
+    "abbreviation": "TRY",
+    "symbol": "₺",
+    "icon": "🇹🇷"
+  },
+  {
+    "name": "South Korean Won",
+    "abbreviation": "KRW",
+    "symbol": "₩",
+    "icon": "🇰🇷"
+  },
+  {
+    "name": "Swedish Krona",
+    "abbreviation": "SEK",
+    "symbol": "kr",
+    "icon": "🇸🇪"
+  },
+  {
+    "name": "Norwegian Krone",
+    "abbreviation": "NOK",
+    "symbol": "kr",
+    "icon": "🇳🇴"
+  },
+  {
+    "name": "Danish Krone",
+    "abbreviation": "DKK",
+    "symbol": "kr",
+    "icon": "🇩🇰"
+  },
+  {
+    "name": "UAE Dirham",
+    "abbreviation": "AED",
+    "symbol": "د.إ",
+    "icon": "🇦🇪"
+  },
+  {
+    "name": "Indonesian Rupiah",
+    "abbreviation": "IDR",
+    "symbol": "Rp",
+    "icon": "🇮🇩"
+  },
+  {
+    "name": "Malaysian Ringgit",
+    "abbreviation": "MYR",
+    "symbol": "RM",
+    "icon": "🇲🇾"
+  },
+  {
+    "name": "Philippine Peso",
+    "abbreviation": "PHP",
+    "symbol": "₱",
+    "icon": "🇵🇭"
+  },
+  {
+    "name": "Thai Baht",
+    "abbreviation": "THB",
+    "symbol": "฿",
+    "icon": "🇹🇭"
+  },
+  {
+    "name": "Polish Zloty",
+    "abbreviation": "PLN",
+    "symbol": "zł",
+    "icon": "🇵🇱"
+  },
+  {
+    "name": "Israeli New Shekel",
+    "abbreviation": "ILS",
+    "symbol": "₪",
+    "icon": "🇮🇱"
+  },
+  {
+    "name": "Egyptian Pound",
+    "abbreviation": "EGP",
+    "symbol": "£",
+    "icon": "🇪🇬"
+  },
+  {
+    "name": "Pakistani Rupee",
+    "abbreviation": "PKR",
+    "symbol": "₨",
+    "icon": "🇵🇰"
+  },
+  {
+    "name": "Bangladeshi Taka",
+    "abbreviation": "BDT",
+    "symbol": "৳",
+    "icon": "🇧🇩"
+  },
+  {
+    "name": "Vietnamese Dong",
+    "abbreviation": "VND",
+    "symbol": "₫",
+    "icon": "🇻🇳"
+  },
+  {
+    "name": "Nigerian Naira",
+    "abbreviation": "NGN",
+    "symbol": "₦",
+    "icon": "🇳🇬"
+  },
+  {
+    "name": "Argentine Peso",
+    "abbreviation": "ARS",
+    "symbol": "$",
+    "icon": "🇦🇷"
+  },
+  {
+    "name": "Chilean Peso",
+    "abbreviation": "CLP",
+    "symbol": "$",
+    "icon": "🇨🇱"
+  },
+  {
+    "name": "Colombian Peso",
+    "abbreviation": "COP",
+    "symbol": "$",
+    "icon": "🇨🇴"
+  },
+  {
+    "name": "Romanian Leu",
+    "abbreviation": "RON",
+    "symbol": "lei",
+    "icon": "🇷🇴"
+  },
+  {
+    "name": "Hungarian Forint",
+    "abbreviation": "HUF",
+    "symbol": "Ft",
+    "icon": "🇭🇺"
+  },
+  {
+    "name": "Czech Koruna",
+    "abbreviation": "CZK",
+    "symbol": "Kč",
+    "icon": "🇨🇿"
+  },
+  {
+    "name": "Croatian Kuna",
+    "abbreviation": "HRK",
+    "symbol": "kn",
+    "icon": "🇭🇷"
+  },
+  {
+    "name": "Bulgarian Lev",
+    "abbreviation": "BGN",
+    "symbol": "лв",
+    "icon": "🇧🇬"
+  },
+  {
+    "name": "Ukrainian Hryvnia",
+    "abbreviation": "UAH",
+    "symbol": "₴",
+    "icon": "🇺🇦"
+  },
+  {
+    "name": "Moroccan Dirham",
+    "abbreviation": "MAD",
+    "symbol": "د.م.",
+    "icon": "🇲🇦"
+  }
+]

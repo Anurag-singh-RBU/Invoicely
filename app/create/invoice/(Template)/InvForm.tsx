@@ -6,12 +6,12 @@ import { Controller, useForm } from "react-hook-form"
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from "@/components/ui/input-group"
-import { Select, SelectContent, SelectItem, SelectSeparator, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import { useState } from "react"
-import { ChevronDown, DownloadCloud, FileCode2Icon, FileEditIcon } from "lucide-react"
+import { ChevronDown, DownloadCloud } from "lucide-react"
+import data from '@/components/constants/data.json'
   
   export function InvForm() {
 
@@ -131,76 +131,59 @@ import { ChevronDown, DownloadCloud, FileCode2Icon, FileEditIcon } from "lucide-
               <FieldGroup>
                 <div className="flex gap-6">
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
-                        <div className="flex gap-8 justify-center items-center">
-                          <span className="flex items-center gap-2">
-                            USD 
-                            <div className="bg-blue-100 p-1 rounded-sm">
-                              <DownloadCloud color="black"></DownloadCloud>
-                            </div>
-                          </span>              
-                        `<ChevronDown color="black" className="ml-8"></ChevronDown>
-                        </div>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                      <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                      <DropdownMenuSeparator/>
-                      <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> Status Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar} disabled> Activity Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
-                        Panel
-                      </DropdownMenuCheckboxItem>
-                    </DropdownMenuContent>
+                    <div className="flex flex-col">
+                      <DropdownMenuLabel>Currency</DropdownMenuLabel>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
+                          <div className="flex sm:gap-8 justify-center items-center">
+                            <span className="flex items-center gap-2">
+                              {data[0].abbreviation} 
+                              <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
+                                {data[0].icon}
+                              </div>
+                            </span>              
+                          <ChevronDown color="black" className="sm:ml-8 ml-2"></ChevronDown>
+                          </div>
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-auto pr-14">
+                        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> USD  
+                          <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
+                            {data[0].icon}
+                          </div>
+                        </DropdownMenuCheckboxItem>
+                          {data.map((cy) => (
+
+                            <DropdownMenuCheckboxItem key={cy.abbreviation} checked={showPanel} onCheckedChange={setShowPanel}>
+                              {cy.abbreviation}
+                              <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
+                                {cy.icon}
+                              </div>
+                            </DropdownMenuCheckboxItem>
+                          ))}
+                        </DropdownMenuContent>
+                    </div>
                   </DropdownMenu>
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
-                        <div className="flex gap-8 justify-center items-center">
-                          <span className="flex items-center gap-2">
-                            USD 
-                            <div className="bg-blue-100 p-1 rounded-sm">
-                              <DownloadCloud color="black"></DownloadCloud>
-                            </div>
-                          </span>              
-                        `<ChevronDown color="black" className="ml-8"></ChevronDown>
-                        </div>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                      <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                      <DropdownMenuSeparator/>
-                      <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> Status Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar} disabled> Activity Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
-                        Panel
-                      </DropdownMenuCheckboxItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
-                        <div className="flex gap-8 justify-center items-center">
-                          <span className="flex items-center gap-2">
-                            USD 
-                            <div className="bg-blue-100 p-1 rounded-sm">
-                              <DownloadCloud color="black"></DownloadCloud>
-                            </div>
-                          </span>              
-                        `<ChevronDown color="black" className="ml-8"></ChevronDown>
-                        </div>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                      <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                      <DropdownMenuSeparator/>
-                      <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> Status Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar} disabled> Activity Bar </DropdownMenuCheckboxItem>
-                      <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
-                        Panel
-                      </DropdownMenuCheckboxItem>
-                    </DropdownMenuContent>
+                    <div className="flex flex-col">
+                      <DropdownMenuLabel>Theme</DropdownMenuLabel>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
+                          <div className="flex sm:gap-5 justify-center items-center py-1">
+                            <span className="flex items-center gap-2">
+                              Light
+                            </span>              
+                          <ChevronDown color="black" className="sm:ml-8 ml-2"></ChevronDown>
+                          </div>
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-auto pr-14">
+                        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> Light 
+                        </DropdownMenuCheckboxItem>
+                        <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}> Dark  
+                        </DropdownMenuCheckboxItem>
+                        </DropdownMenuContent>
+                    </div>
                   </DropdownMenu>
                 </div>
               </FieldGroup>
