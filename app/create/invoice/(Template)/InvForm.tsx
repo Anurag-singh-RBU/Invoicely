@@ -7,18 +7,32 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from "@/components/ui/input-group"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import { useState } from "react"
-import { ChevronDown, DownloadCloud } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import data from '@/components/constants/data.json'
   
   export function InvForm() {
 
+    const [color, setColor] = useState("#7246ec");
+
+    const isValidHex = (hex: string) => /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/.test(hex);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value;
+      if (val === "" || val[0] !== "#") {
+        setColor("#");
+        return;
+      }
+      if (val.length <= 7) {
+        setColor(val);
+      }
+    };
+
     type Checked = DropdownMenuCheckboxItemProps["checked"]
 
     const [showStatusBar, setShowStatusBar] = useState<Checked>(true)
-    const [showActivityBar, setShowActivityBar] = useState<Checked>(false)
     const [showPanel, setShowPanel] = useState<Checked>(false)
 
     const form = useForm()
@@ -134,7 +148,7 @@ import data from '@/components/constants/data.json'
                     <div className="flex flex-col">
                       <DropdownMenuLabel>Currency</DropdownMenuLabel>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
+                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit py-3">
                           <div className="flex sm:gap-8 justify-center items-center">
                             <span className="flex items-center gap-2">
                               {data[0].abbreviation} 
@@ -185,9 +199,73 @@ import data from '@/components/constants/data.json'
                         </DropdownMenuContent>
                     </div>
                   </DropdownMenu>
+                  <div className="pt-2">
+                  <label className="mb-3 ml-1 font-medium">Theme Color</label>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        border: "1px solid #E2E8F0",
+                        borderRadius: 6,
+                        paddingLeft: 6,
+                        paddingRight: 6,
+                        paddingTop: 4,
+                        paddingBottom: 4,
+                        gap: 4 
+                      }}
+                      className="w-fit mt-1"
+                    >
+                      <input
+                        type="text"
+                        value={color}
+                        onChange={handleInputChange}
+                        maxLength={7}
+                        placeholder="#7246ec"
+                        style={{
+                          flexGrow: 1,
+                          border: "none",
+                          outline: "none",
+                          fontSize: 14,
+                          color: isValidHex(color) ? "black" : "red",
+                          fontWeight: 500,
+                          marginLeft: 3
+                        }}
+                        className="placeholder:tracking-wider tracking-wider"
+                      />
+                      <div
+                        style={{
+                          position: "relative",
+                          width: 36,
+                          height: 36,
+                          borderRadius: 6,
+                          border: "1px solid #E2E8F0",
+                          backgroundColor: isValidHex(color) ? color : "#fff",
+                          cursor: "pointer",
+                          marginLeft: -120
+                        }}
+                      >
+                        <input
+                          type="color"
+                          value={isValidHex(color) ? color : "#EB5E41"}
+                          onChange={e => setColor(e.target.value)}
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 10,
+                            bottom: 0,
+                            opacity: 0,
+                            cursor: "pointer",
+                            width: "100%",
+                            height: "100%",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </FieldGroup>
-            </form>
+            </form> 
           </AccordionContent>
         </AccordionItem>
       </Accordion>

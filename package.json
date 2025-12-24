@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.30.0",
+    "@emotion/react": "^11.14.0",
     "@everapi/currencyapi-js": "^1.0.6",
     "@hookform/resolvers": "^5.2.2",
     "@mantine/hooks": "^8.3.10",
