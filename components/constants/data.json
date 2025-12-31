@@ -1,11 +1,5 @@
 [
   {
-    "name": "US Dollar",
-    "abbreviation": "USD",
-    "symbol": "$",
-    "icon": "🇺🇸"
-  },
-  {
     "name": "Euro",
     "abbreviation": "EUR",
     "symbol": "€",

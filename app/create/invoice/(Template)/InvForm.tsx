@@ -140,68 +140,93 @@ import data from '@/components/constants/data.json'
         <AccordionItem value="item-3">
           <AccordionTrigger>Invoice Details</AccordionTrigger>
 
-          <AccordionContent className="flex flex-col gap-4">
+          <AccordionContent className="flex flex-col sm:gap-4">
             <form id="form-rhf-demo">
               <FieldGroup>
-                <div className="flex gap-6">
+                <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 w-full">
+                  {/* Currency */}
                   <DropdownMenu>
-                    <div className="flex flex-col">
-                      <DropdownMenuLabel>Currency</DropdownMenuLabel>
+                    <div className="flex flex-col flex-1 min-w-0">
+                      <DropdownMenuLabel className="sm:mb-1">Currency</DropdownMenuLabel>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit py-3">
-                          <div className="flex sm:gap-8 justify-center items-center">
-                            <span className="flex items-center gap-2">
-                              {data[0].abbreviation} 
-                              <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
-                                {data[0].icon}
+                        <Button 
+                          variant="outline"
+                          className="w-full border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-1 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 py-2"
+                        >
+                          <div className="flex items-center justify-between w-full">
+                            <span className="flex items-center gap-3">
+                              USD
+                              <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold block">
+                                us
                               </div>
                             </span>              
-                          <ChevronDown color="black" className="sm:ml-8 ml-2"></ChevronDown>
+                            <ChevronDown color="black" className="ml-2"/>
                           </div>
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-auto pr-14">
-                        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> USD  
-                          <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
-                            {data[0].icon}
-                          </div>
+                      <DropdownMenuContent className="w-full sm:min-w-[200px] min-w-[345px]" align="start">
+                        <DropdownMenuCheckboxItem checked>
+                          USD
+                        <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold block ml-2">
+                          us
+                        </div>
                         </DropdownMenuCheckboxItem>
-                          {data.map((cy) => (
-
-                            <DropdownMenuCheckboxItem key={cy.abbreviation} checked={showPanel} onCheckedChange={setShowPanel}>
-                              {cy.abbreviation}
-                              <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold hidden sm:block">
-                                {cy.icon}
-                              </div>
-                            </DropdownMenuCheckboxItem>
-                          ))}
-                        </DropdownMenuContent>
+                        {data.map((cy) => (
+                          <DropdownMenuCheckboxItem key={cy.abbreviation} checked={showPanel} onCheckedChange={setShowPanel}>
+                            {cy.abbreviation}
+                            <div className="bg-blue-100 py-1 px-2 rounded-sm text-sm font-bold block ml-2">
+                              {cy.icon}
+                            </div>
+                          </DropdownMenuCheckboxItem>
+                        ))}
+                      </DropdownMenuContent>
                     </div>
                   </DropdownMenu>
+
                   <DropdownMenu>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col flex-1 min-w-0">
                       <DropdownMenuLabel>Theme</DropdownMenuLabel>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 w-fit">
-                          <div className="flex sm:gap-5 justify-center items-center py-1">
-                            <span className="flex items-center gap-2">
-                              Light
-                            </span>              
-                          <ChevronDown color="black" className="sm:ml-8 ml-2"></ChevronDown>
+                        <Button 
+                          variant="outline"
+                          className="w-full border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 sm:mt-1">
+                          <div className="flex items-center justify-between w-full py-1">
+                            <span>Light</span>
+                            <ChevronDown color="black" className="ml-2"/>
                           </div>
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="w-auto pr-14">
-                        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}> Light 
-                        </DropdownMenuCheckboxItem>
-                        <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}> Dark  
-                        </DropdownMenuCheckboxItem>
-                        </DropdownMenuContent>
+                      <DropdownMenuContent
+                        align="start"
+                        sideOffset={4}
+                        className="flex flex-col"
+                        style={{
+                          width: "100%",
+                          minWidth: 0,
+                        }}>
+                        <div className="flex flex-col w-full sm:pr-15 pr-65 my-2">
+                          <DropdownMenuCheckboxItem
+                            className="w-full gap-3 mb-2"
+                            style={{ width: "100%" }}
+                            checked={showStatusBar}
+                            onCheckedChange={setShowStatusBar}>
+                            Light
+                          </DropdownMenuCheckboxItem>
+                          <DropdownMenuCheckboxItem
+                            className="w-full"
+                            style={{ width: "100%" }}
+                            checked={showPanel}
+                            onCheckedChange={setShowPanel}>
+                            Dark
+                          </DropdownMenuCheckboxItem>
+                        </div>
+                      </DropdownMenuContent>
                     </div>
                   </DropdownMenu>
-                  <div className="pt-2">
-                  <label className="mb-3 ml-1 font-medium">Theme Color</label>
-                    <div
+
+                  <div className="flex flex-col flex-1 min-w-0 mt-2">
+                    <label className="sm:mb-1 ml-1 font-medium">Theme Color</label>
+                    <div 
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -211,9 +236,10 @@ import data from '@/components/constants/data.json'
                         paddingRight: 6,
                         paddingTop: 4,
                         paddingBottom: 4,
-                        gap: 4 
+                        gap: 4,
+                        width: "100%"
                       }}
-                      className="w-fit mt-1"
+                      className="mt-1"
                     >
                       <input
                         type="text"
@@ -228,11 +254,12 @@ import data from '@/components/constants/data.json'
                           fontSize: 14,
                           color: isValidHex(color) ? "black" : "red",
                           fontWeight: 500,
-                          marginLeft: 3
+                          marginLeft: 3,
+                          minWidth: 0
                         }}
-                        className="placeholder:tracking-wider tracking-wider"
+                        className="placeholder:tracking-wider tracking-wider w-full"
                       />
-                      <div
+                      <div 
                         style={{
                           position: "relative",
                           width: 36,
@@ -241,7 +268,7 @@ import data from '@/components/constants/data.json'
                           border: "1px solid #E2E8F0",
                           backgroundColor: isValidHex(color) ? color : "#fff",
                           cursor: "pointer",
-                          marginLeft: -120
+                          marginLeft: 6
                         }}
                       >
                         <input
@@ -252,18 +279,70 @@ import data from '@/components/constants/data.json'
                             position: "absolute",
                             top: 0,
                             left: 0,
-                            right: 10,
+                            right: 0,
                             bottom: 0,
                             opacity: 0,
                             cursor: "pointer",
                             width: "100%",
-                            height: "100%",
+                            height: "100%"
                           }}
                         />
                       </div>
                     </div>
                   </div>
                 </div>
+                  <div className="flex flex-col sm:flex-row sm:gap-7 gap-3 w-full">
+                    <div className="flex flex-col sm:gap-2 gap-1 flex-1">
+                      <label className="ml-2 font-medium">Invoice Prefix</label>
+                      <Button
+                        variant="outline"
+                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
+                        <input
+                          type="text"
+                          placeholder="Invoice  INV -"
+                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          style={{ minWidth: 0 }}/>
+                      </Button>
+                    </div>
+                    <div className="flex flex-col sm:gap-2 gap-1 flex-1">
+                      <label className="ml-2 font-medium">Serial Number</label>
+                      <Button
+                        variant="outline"
+                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
+                        <input
+                          type="text"
+                          placeholder="0001"
+                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          style={{ minWidth: 0 }}/>
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:gap-7 gap-3 w-full">
+                    <div className="flex flex-col sm:gap-2 gap-1 flex-1">
+                      <label className="ml-2 font-medium">Invoice Date</label>
+                      <Button
+                        variant="outline"
+                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
+                        <input
+                          type="text"
+                          placeholder="December 26th 2025"
+                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          style={{ minWidth: 0 }}/>
+                      </Button>
+                    </div>
+                    <div className="flex flex-col sm:gap-2 gap-1 flex-1">
+                      <label className="ml-2 font-medium">Due Date</label>
+                      <Button
+                        variant="outline"
+                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
+                        <input
+                          type="text"
+                          placeholder="Pick a date"
+                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          style={{ minWidth: 0 }}/>
+                      </Button>
+                    </div>
+                  </div>
               </FieldGroup>
             </form> 
           </AccordionContent>
