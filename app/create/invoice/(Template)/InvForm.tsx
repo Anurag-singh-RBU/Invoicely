@@ -12,6 +12,7 @@ import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import data from '@/components/constants/data.json'
+import { Calendar22 } from "@/components/ui/date-picker"
   
   export function InvForm() {
 
@@ -144,7 +145,6 @@ import data from '@/components/constants/data.json'
             <form id="form-rhf-demo">
               <FieldGroup>
                 <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 w-full">
-                  {/* Currency */}
                   <DropdownMenu>
                     <div className="flex flex-col flex-1 min-w-0">
                       <DropdownMenuLabel className="sm:mb-1">Currency</DropdownMenuLabel>
@@ -319,30 +319,25 @@ import data from '@/components/constants/data.json'
                   </div>
                   <div className="flex flex-col sm:flex-row sm:gap-7 gap-3 w-full">
                     <div className="flex flex-col sm:gap-2 gap-1 flex-1">
-                      <label className="ml-2 font-medium">Invoice Date</label>
-                      <Button
-                        variant="outline"
-                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
-                        <input
-                          type="text"
-                          placeholder="December 26th 2025"
-                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
-                          style={{ minWidth: 0 }}/>
-                      </Button>
+                      <Calendar22 title="Invoice Date"></Calendar22>
                     </div>
                     <div className="flex flex-col sm:gap-2 gap-1 flex-1">
-                      <label className="ml-2 font-medium">Due Date</label>
-                      <Button
-                        variant="outline"
-                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
-                        <input
-                          type="text"
-                          placeholder="Pick a date"
-                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
-                          style={{ minWidth: 0 }}/>
-                      </Button>
+                      <Calendar22 title="Due Date"></Calendar22>
                     </div>
                   </div>
+                  <Controller name="client name" control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel className="flex gap-2 ml-2 font-medium">
+                        Payment terms
+                        <span className="inline-flex items-center select-none justify-center light:font-medium rounded-sm w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden dark:bg-secondary/80 dark:text-secondary-foreground text-black bg-secondary px-1 text-[10px] py-0.5">optional</span>
+                      </FieldLabel>
+                      <Input {...field} placeholder="50% of the total amount upfront" className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-8 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive -mt-1 placeholder:tracking-wide"/>
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]}/>
+                      )}
+                    </Field>
+                  )}/>
               </FieldGroup>
             </form> 
           </AccordionContent>
