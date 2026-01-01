@@ -294,27 +294,19 @@ import { Calendar22 } from "@/components/ui/date-picker"
                   <div className="flex flex-col sm:flex-row sm:gap-7 gap-3 w-full">
                     <div className="flex flex-col sm:gap-2 gap-1 flex-1">
                       <label className="ml-2 font-medium">Invoice Prefix</label>
-                      <Button
-                        variant="outline"
-                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
                         <input
                           type="text"
                           placeholder="Invoice  INV -"
-                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          className="placeholder:text-muted-foreground flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans"
                           style={{ minWidth: 0 }}/>
-                      </Button>
                     </div>
                     <div className="flex flex-col sm:gap-2 gap-1 flex-1">
                       <label className="ml-2 font-medium">Serial Number</label>
-                      <Button
-                        variant="outline"
-                        className="flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans">
                         <input
                           type="text"
                           placeholder="0001"
-                          className="bg-transparent border-none outline-none flex-1 text-sm font-medium placeholder:text-muted-foreground"
+                          className="placeholder:text-muted-foreground py-2 flex-1 font-medium border-inputdata-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex items-center justify-between gap-2 rounded-md border bg-transparent px-3 h-auto text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 geist-sans"
                           style={{ minWidth: 0 }}/>
-                      </Button>
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:gap-7 gap-3 w-full">
