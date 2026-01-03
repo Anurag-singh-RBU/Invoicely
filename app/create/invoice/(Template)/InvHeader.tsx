@@ -8,7 +8,7 @@ import { ChevronDownIcon } from "lucide-react";
 export default function TopActionBar() {
   return (
     <div
-      className={cn("flex items-center justify-between border-b px-4 py-2","geist-sans")}>
+      className={cn("flex items-center justify-between px-4 py-2","geist-sans")}>
       <div className="flex items-center sm:gap-4 gap-2">
         <button className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 h-8 px-4 py-2 has-[>svg]:px-2.5">
           <FileAlertIcon className="size-4"/>
